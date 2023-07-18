@@ -23,17 +23,34 @@ The objective is to develop an MAOP system to control the temperature of a room 
 
 image:doc/figs/smart-room1.png[]
 
-== Agent Dimension (Lab 1)
+== Agent Dimension (Lab 0)
 
 === Task 1: Run the initial project for the smart room scenario
 
 The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning this repository (https://github.com/JaCaMo-EASSS23/code). Java JDK 17+ and VSCode should be installed locally in this case.
 
+
+To run the initial project, type the commands below in the terminal:
+----
+cd cd hands-on/lab0/agents-intro-1
+./gradlew
+----
+
+
+=== Task 2: Add a new personal assistant agent
+Add a new personal assistant agent to the system. This agent should greet in portuguese ("Bom dia.").
+
+
+=== Task 3: Add an unknown language
+Set the language of bob to japanese without adding any plan. Run the system and observe the output. Handle exceptions if needed.
+
+
+
 == Agent Dimension (Lab 1)
 
 === Task 1: Run the initial project for the smart room scenario
 
-The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning this repository (https://github.com/JaCaMo-EASSS23/code). Java JDK 17+ and VSCode should be installed locally in this case.
+The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning this repository (https://github.com/maiquelb/jacamo-wesaac2023). Java JDK 17+ and VSCode should be installed locally in this case.
 
 To run the initial project, type the commands below in the terminal:
 ----
