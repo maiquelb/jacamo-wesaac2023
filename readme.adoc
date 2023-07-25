@@ -32,7 +32,8 @@ The simplest way to run the examples and do the exercises is by using https://gi
 
 To run the initial project, type the commands below in the terminal:
 ----
-cd cd hands-on/lab0/agents-intro-1
+git clone git@github.com:maiquelb/jacamo-wesaac2023.git
+cd jacamo-wesaac2023/hands-on/lab0/agents-intro-1
 ./gradlew
 ----
 
