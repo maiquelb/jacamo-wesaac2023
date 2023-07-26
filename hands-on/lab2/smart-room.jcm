@@ -1,0 +1,16 @@
+// smart room single agent
+// the rc 
+
+mas smart_room {
+    agent rc : personal_assistant.asl {
+          goals: keep_temperature, greet
+          beliefs: language(english), preference(20)
+    	  focus: room.hvac
+    }
+
+  	workspace room {
+        artifact hvac: devices.HVAC(30)
+    }
+
+    platform: jacamo.rest.JCMRest("--rest-port 8080")
+}
