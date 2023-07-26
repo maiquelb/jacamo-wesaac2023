@@ -23,11 +23,13 @@ The objective is to develop an MAOP system to control the temperature of a room 
 
 image:doc/figs/smart-room1.png[]
 
+
 == Agent Dimension (Lab 0)
 
 === Task 1: Run the initial project for the smart room scenario
 
 The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning this repository (https://github.com/JaCaMo-EASSS23/code). Java JDK 17+ and VSCode should be installed locally in this case.
+
 
 
 To run the initial project, type the commands below in the terminal:
@@ -43,15 +45,17 @@ cd jacamo-wesaac2023/hands-on/lab0/agents-intro-1
 
 * Exercise 1: open the code of the personal assistant agent (file `src/agt/personal_assistant.asl`), read the code and identify the beliefs, goals, and plans. Try to map the program to the observed behavior. 
 
-* Exercise 2: open the _mind inspector_ for agent `rc` and compare the beliefs there with those identified in the program. Are they the same? Are they represented the same way? 
+* Exercise 2: open the _mind inspector_ for agents `bob` and `marie`. Compare the beliefs there with those identified in the program. Are they the same? Are they represented the same way? 
 
-=== Task 2: Add a new personal assistant agent
-Add a new personal assistant agent to the system. This agent should greet in portuguese ("Bom dia.").
+=== Task 3: Extending the agent program
+* Exercise 1: Add a new personal assistant agent to the system. This agent should greet in portuguese ("Bom dia.").
+
+* Exercise 2: Set the language of bob to japanese without adding any plan. Run the system and observe the output. Handle exceptions if needed.
 
 
-=== Task 3: Add an unknown language
-Set the language of bob to japanese without adding any plan. Run the system and observe the output. Handle exceptions if needed.
-
+==== Questons:
+* Where to the beliefs come from?
+* Where are the actions implemented?
 
 
 == Agent Dimension (Lab 1)
