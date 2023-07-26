@@ -24,7 +24,7 @@ The objective is to develop an MAOP system to control the temperature of a room 
 image:doc/figs/smart-room1.png[]
 
 
-== Agent Dimension (Lab 0)
+== Agent Dimension - Agent basics (Lab 1)
 
 === Task 1: Run the initial project for the smart room scenario
 
