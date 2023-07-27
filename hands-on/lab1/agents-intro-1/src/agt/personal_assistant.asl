@@ -1,8 +1,9 @@
+!greet.
 
-+!greet :language(english)
++!greet : language(english)
     <- .print("hello world.").            
 
-+!greet :language(french)
++!greet : language(french)
     <- .print("bonjour.").                
 
 
