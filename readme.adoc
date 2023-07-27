@@ -26,16 +26,22 @@ image:doc/figs/smart-room1.png[]
 
 == Agent Dimension - Agent basics (Lab 1)
 
+Objectives:
+
+* Know the basic structure of JaCaMo applications;
+* Run a multi-agent application;
+* Understand the difference between agent implementation and agent instance;
+* Have a first experience with the concepts of _goals_, _beliefs_, _plans_, and _internal actions_.   
+
 === Task 1: Run the initial project for the smart room scenario
 
-The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning this repository (https://github.com/JaCaMo-EASSS23/code). Java JDK 17+ and VSCode should be installed locally in this case.
+The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning this repository (https://github.com/maiquelb/jacamo-wesaac2023). Java JDK 17+ and VSCode should be installed locally in this case.
 
 
 
 To run the initial project, type the commands below in the terminal:
 ----
-git clone git@github.com:maiquelb/jacamo-wesaac2023.git
-cd jacamo-wesaac2023/hands-on/lab0/agents-intro-1
+cd hands-on/lab1
 ./gradlew
 ----
 
@@ -48,9 +54,9 @@ cd jacamo-wesaac2023/hands-on/lab0/agents-intro-1
 * Exercise 2: open the _mind inspector_ for agents `bob` and `marie`. Compare the beliefs there with those identified in the program. Are they the same? Are they represented the same way? 
 
 === Task 3: Extending the agent program
-* Exercise 1: Add a new personal assistant agent to the system. This agent should greet in portuguese ("Bom dia.").
+* Exercise 3: Add a new personal assistant agent to the system. This agent should greet in portuguese ("Bom dia.").
 
-* Exercise 2: Set the language of bob to japanese without adding any plan. Run the system and observe the output. Handle exceptions if needed.
+* Exercise 4: Set the language of bob to japanese without adding any plan. Run the system and observe the output. Handle exceptions if needed.
 
 
 ==== Questons:
@@ -59,6 +65,13 @@ cd jacamo-wesaac2023/hands-on/lab0/agents-intro-1
 
 
 == Agent X Environment (Lab 2)
+
+Objectives:
+
+* Have a first experience with programming agents perceiving and acting upon the environment;
+* Understand the difference between _internal actions_ and _external actions_
+* Understand the difference between declarative and procedural goals;
+* Understand more complex agent design patterns.
 
 === Task 1: Run the initial project for the smart room scenario
 
@@ -79,21 +92,27 @@ replacing the last number 10 by the current temperature of the room.
 
 === Task 2: Reading and understanding agent programs
 
-* Exercise 1: open the code of the room controller agent (file `src/agt/personal_assistant.asl`), read the code and identify the beliefs, goals, and plans. Try to map the program to the observed behavior. 
+* Exercise 5: open the code of the room controller agent (file `src/agt/personal_assistant.asl`), read the code and identify the beliefs, goals, and plans. Try to map the program to the observed behavior. 
 
-* Exercise 2: open the _mind inspector_ for agent `rc` and compare the beliefs there with those identified in the program. Are they the same? Are they represented the same way? 
+* Exercise 6: open the _mind inspector_ for agent `rc` and compare the beliefs there with those identified in the program. Are they the same? Are they represented the same way? 
 
-* Exercise 3: change the program so that the target temperature is 15.
+* Exercise 7: change the program so that the target temperature is 15.
 
 === Task 3: Improve the implementation
 
-* Exercise 4: add a new plan to print the current state of the HVAC.
+* Exercise 8: add a new plan to print the current state of the HVAC.
 
-* Exercise 5: change the plans of the previous exercise so that when the hvac state is `"cooling"` it is printed "so cool" and, when the state is `"heating"` it is printed "so hot".
+* Exercise 9: change the plans of the previous exercise so that when the hvac state is `"cooling"` it is printed "so cool" and, when the state is `"heating"` it is printed "so hot".
 
-* Exercise 6: open the project in folder `lab1/e6` and take a look at the room controller program. There is a difference in the last lines (line 17). Evaluate the reasons for that modification and its problems. Some ideas about how to fix?
+* Exercise 10: open the project in folder `lab1/e6` and take a look at the room controller program. There is a difference in the last lines (line 17). Evaluate the reasons for that modification and its problems. Some ideas about how to fix?
 
 * Exercise 7: open the project in folder `lab1/e7` and take a look at the room controller program. The target temperature is as an argument of goal `keep_temperature`. The project, as it is, works. But what happens if a line like `!keep_temperature(35)` is added in the program? Explain the behavior produced by this change.
+
+
+==== Questons:
+* Is it possible to observe a different pattern between the plans to achieve `greet` and `keep_temperature`?
+* Which actions of the agent are _internal actions_?
+* Which actions of the agent are _external actions_?
 
 
 == Agent Communication (Lab 2)
