@@ -254,7 +254,7 @@ Note: the _personal assistant_ keeps asking the _room controller_ to change the 
 curl --request POST 'http://127.0.1.1:8080/agents/<agent_id>/command' --header 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'c=-+preference(<pref_temp>)'
 ----
 
-== Organisation Dimension (Lab 4)
+== Organisation Dimension (Lab 5)
 
 === Task 1: Reading and understanding an organization
 
