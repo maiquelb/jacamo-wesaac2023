@@ -171,7 +171,13 @@ cd lab2/smart-room-ma
 
 * Exercise 8: add a new personal assistant. Does the application work properly? The rule `all_votes_received` is hard-coded for 3 participants. How to make it flexible? Think about possible solutions. Hints: see the internal actions link:https://jason.sourceforge.net/api/jason/stdlib/all_names.html[`.all_names`] and link:https://jason.sourceforge.net/api/jason/stdlib/df_register.html[`.df_register`].
 
-== Environment Dimension (Lab 3)
+== Environment Dimension (Lab 4)
+Objectives:
+* Exercise the basic skills to implement _artifacts_, which are the JaCaMo environment building blocks;
+* Create and initialize _artifacts_;
+* Create and update _observable properties_;
+* Use _signals_;
+* Implement _operations_.
 
 Consider a new scenario where the _personal assistant_ cannot access the hvac. Such access is restricted to the _room controller_. To keep the desirable temperature, the _personal assistant_ must ask the _room controller_ to manage the hvac. The _room controler_ then manages a voting to check the preference of all the _personal assistant_ and manages the hvac accordingly.
 
@@ -188,8 +194,8 @@ Consider a new scenario where the _personal assistant_ cannot access the hvac. S
 
 The artifact template for our voting machine is defined in the link:lab3/smart-room-vm/src/env/voting/VotingMachine.java[VotingMachine.java] class, but the usage interface is not yet fully implemented. Your first task is to complete this implementation. The following sub-tasks will guide you through it, note also the `TODO` items marked in comments in the Java class.
 
-- Task 3.1.1: Your very first task is to complete the artifact's `init` method by defining an observable property `voting_status` and setting its value to  `closed`.
-- Task 3.1.2: Your second task is to complete the implementation of the `open` and `close` operations.
+- Exercise 4.1.1: complete the artifact's `init` method by defining an observable property `voting_status` and setting its value to  `closed`.
+- Exercise 4.1.2: complete the implementation of the `open` and `close` operations.
 
 To solve these tasks, you will have to define and work with observable properties. Tips for a quick start:
 
