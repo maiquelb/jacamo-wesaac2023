@@ -171,19 +171,25 @@ cd lab2/smart-room-ma
 
 * Exercise 8: add a new personal assistant. Does the application work properly? The rule `all_votes_received` is hard-coded for 3 participants. How to make it flexible? Think about possible solutions. Hints: see the internal actions link:https://jason.sourceforge.net/api/jason/stdlib/all_names.html[`.all_names`] and link:https://jason.sourceforge.net/api/jason/stdlib/df_register.html[`.df_register`].
 
-
 == Environment Dimension (Lab 3)
 
-We will now implement the voting mechanism as an artifact: agents will use a _voting machine_ artifact to select the target temperature for the shared room based on their individual preferences.
+Consider a new scenario where the _personal assistant_ cannot access the hvac. Such access is restricted to the _room controller_. To keep the desirable temperature, the _personal assistant_ must ask the _room controller_ to manage the hvac. The _room controler_ then manages a voting to check the preference of all the _personal assistant_ and manages the hvac accordingly.
 
-Most of the code required for this practical session is already provided in the link:lab3/smart-room-vm[lab3/smart-room-vm] project. The following tasks will guide you through adding the last lines of code that will bring everything together.
+//We will now implement the voting mechanism as an artifact: has no longer access to the hvac. 
+
+//will use a _voting machine_ artifact to select the target temperature for the shared room based on their individual preferences.
+
+//Most of the code required for this practical session is already provided in the link:lab3/smart-room-vm[lab3/smart-room-vm] project. The following tasks will guide you through adding the last lines of code that will bring everything together.
+
+
+
 
 === Task 1: Implement the usage interface for the voting machine
 
 The artifact template for our voting machine is defined in the link:lab3/smart-room-vm/src/env/voting/VotingMachine.java[VotingMachine.java] class, but the usage interface is not yet fully implemented. Your first task is to complete this implementation. The following sub-tasks will guide you through it, note also the `TODO` items marked in comments in the Java class.
 
-- Task 1.1: Your very first task is to complete the artifact's `init` method by defining an observable property `status` and setting its value to  `open`.
-- Task 1.2: Your second task is to complete the implementation of the `open`, `vote`, and `close` operations.
+- Task 3.1.1: Your very first task is to complete the artifact's `init` method by defining an observable property `voting_status` and setting its value to  `closed`.
+- Task 3.1.2: Your second task is to complete the implementation of the `open` and `close` operations.
 
 To solve these tasks, you will have to define and work with observable properties. Tips for a quick start:
 
@@ -195,29 +201,15 @@ To solve these tasks, you will have to define and work with observable propertie
 
 Your voting machine is now ready — and the room controller agent is, in fact, already using it (see link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl]). Still, a few bits are missing:
 
-- Task 2.1: Your first task is to complete the `TODOs` defined in link:lab3/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents can focus on the voting machine and vote for their preferences.
+- Task 3.2.1: Complete the `TODOs` defined in link:lab3/smart-room-vm/src/agt/room_controler.asl[room_controler.asl] so that agent open a new voting when needed.
 
-- Task 2.2: The personal assistant agents are now expressing their votes, but still nothing is happening. That is because the voting is never closed. See the `TODO` on `line 33` of link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl].
 
-To solve these tasks, you will need to use the `focus` operation and to invoke artifact operations defined by the voting machine. Tips for a quick start:
+- Task 3.2.2: Complete the `TODOs` defined in link:lab3/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents can focus on the voting machine and vote for their preferences.
 
-* see Lines 19 in link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl] for an example of using the `focus` operation
+- Task 3.2.3: Complete the `TODO` defined in link:lab3/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents shows the current temperature in its log message.
 
-* see Line 24 in link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl] for an example of invoking the `open` operation of the voting machine
 
-* note: the voting machine is defined within the `vm::` namespace (see Lines 19 and 24 above for usage examples)
 
-=== Task 3: Implement automatic closing with a countdown
-
-Our agents are now using the voting machine to set the temperature in the shared room. At the moment, however, the room controller agent needs to invoke the `close` operation on the voting machine to close the voting — although the voting machine is already configured with a timeout.
-
-Your task is to complete the implementation of the voting machine's `countdown` internal operation (see Line 97 in link:lab3/smart-room-vm/src/env/voting/VotingMachine.java[VotingMachine.java]). For an example of a similar implementation, see https://cartago.sourceforge.net/?page_id=108[Example 06 — Internal operations and timed await: implementing a clock] from https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples].
-
-Once you finish implementing the internal operation, make sure to:
-
-* uncomment Line 57 in link:lab3/smart-room-vm/src/env/voting/VotingMachine.java[VotingMachine.java], which invokes the `countdown` internal operation
-
-* udpate the plan of the room controller agent for `+!voting(Options)` (see `TODOs`)
 
 === Task 4: Implement a linked operation
 
@@ -236,6 +228,11 @@ Your task is to complete the link:lab3/smart-room-vm/src/agt/room_controller.asl
 
 If you enjoyed this practical session, make sure to check out https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples] for a complete tour of all features supported for the enviornment dimension.
 
+
+Note: the _personal assistant_ keeps asking the _room controller_ to change the temperature while it does not matches the agent's preference. To change the preference of the agents in running time, use the following command, replacing `<agent_id>` with the agent name and `<pref_temp>` with the preferred temperature.
+----
+curl --request POST 'http://127.0.1.1:8080/agents/<agent_id>/command' --header 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'c=-+preference(<pref_temp>)'
+----
 
 == Organisation Dimension (Lab 4)
 
