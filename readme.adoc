@@ -49,14 +49,14 @@ cd hands-on/lab1
 
 === Task 2: Reading and understanding agent programs
 
-* Exercise 1: open the code of the personal assistant agent (file `src/agt/personal_assistant.asl`), read the code and identify the beliefs, goals, and plans. Try to map the program to the observed behavior. 
+* Exercise 1.2.1: open the code of the personal assistant agent (file `src/agt/personal_assistant.asl`), read the code and identify the beliefs, goals, and plans. Try to map the program to the observed behavior. 
 
-* Exercise 2: open the _mind inspector_ for agents `bob` and `marie`. Compare the beliefs there with those identified in the program. Are they the same? Are they represented the same way? 
+* Exercise 1.2.2: open the _mind inspector_ for agents `bob` and `marie`. Compare the beliefs there with those identified in the program. Are they the same? Are they represented the same way? 
 
 === Task 3: Extending the agent program
-* Exercise 3: Add a new personal assistant agent to the system. This agent should greet in portuguese ("Bom dia.").
+* Exercise 1.3.1: Add a new personal assistant agent to the system. This agent should greet in portuguese ("Bom dia.").
 
-* Exercise 4: Set the language of bob to japanese without adding any plan. Run the system and observe the output. Handle exceptions if needed.
+* Exercise 1.3.2: Set the language of bob to japanese without adding any plan. Run the system and observe the output. Handle exceptions if needed.
 
 
 ==== Questons:
@@ -64,11 +64,11 @@ cd hands-on/lab1
 * Where are the actions implemented?
 
 
-== Agent X Environment (Lab 2)
+== Agent x Environment (Lab 2)
 
 Objectives:
 
-* Have a first experience with programming agents perceiving and acting upon the environment;
+* Have a first experience with programming agents that perceive and act upon the environment;
 * Understand the difference between _internal actions_ and _external actions_
 * Understand the difference between declarative and procedural goals;
 * Understand more complex agent design patterns.
@@ -92,11 +92,11 @@ replacing the last number 10 by the current temperature of the room.
 
 === Task 2: Reading and understanding agent programs
 
-* Exercise 5: open the code of the room controller agent (file `src/agt/personal_assistant.asl`), read the code and identify the beliefs, goals, and plans. Try to map the program to the observed behavior. 
+* Exercise 2.2.1: open the code of the room controller agent (file `src/agt/personal_assistant.asl`), read the code and identify the beliefs, goals, and plans. Try to map the program to the observed behavior. 
 
-* Exercise 6: open the _mind inspector_ for agent `rc` and compare the beliefs there with those identified in the program. Are they the same? Are they represented the same way? 
+* Exercise 2.2.2: open the _mind inspector_ for agent `rc` and compare the beliefs there with those identified in the program. Are they the same? Are they represented the same way? 
 
-* Exercise 7: change the program so that the target temperature is 15.
+* Exercise 2.2.3: change the program so that the target temperature is 15.
 
 === Task 3: Improve the implementation
 
@@ -115,7 +115,7 @@ replacing the last number 10 by the current temperature of the room.
 * Which actions of the agent are _external actions_?
 
 
-== Agent Communication (Lab 2)
+== Agent Communication (Lab 3)
 
 === Task 1: Experiment different performatives
 
