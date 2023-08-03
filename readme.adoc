@@ -7,7 +7,7 @@
 :icons: font
 :prewrap!:
 
-This guide contains practical material for the tutorial _Multi-Agent Oriented Programming_ at https://easss23.fit.cvut.cz[23rd European Agent Systems Summer] School, 2023, Prague.
+This guide contains practical material for the tutorial _Multi-Agent Oriented Programming_ at https://sites.google.com/inf.ufpel.edu.br/wesaac2023[17th Workshop-School on Agents, Environments and Applications (WESAAC 2023)], 2023, Pelotas - Brazil.
 
 
 == Smart Room Scenario
