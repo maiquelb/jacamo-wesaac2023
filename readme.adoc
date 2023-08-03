@@ -203,36 +203,50 @@ To solve these tasks, you will have to define and work with observable propertie
 - you can check out https://cartago.sourceforge.net/?page_id=69[Example 01 — Artifact definition, creation, and use] from https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples]
 
 
-=== Task 2: Instantiate and use the voting machine
+=== Task 2: Instantiate the voting machine an make it available the agents
 
-Your voting machine is now ready — and the room controller agent is, in fact, already using it (see link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl]). Still, a few bits are missing:
+The implementation of the voting machine artifact is ready. Now, it is necessary to instantiate this artifact and make it available to the agents.
 
-- Task 3.2.1: Complete the `TODOs` defined in link:lab3/smart-room-vm/src/agt/room_controler.asl[room_controler.asl] so that agent open a new voting when needed.
+- Exercise 4.2.1: complete the `TODO` in link:hands-on/lab3/smart-room.jcm[smart-room.jcm] to create an instance of the voting machine called `vote`. 
+
+- Exercise 4.2.2: run the application, go to link:http://localhost:3273[http://localhost:3273], check whether `room` workspace contains the voting artifct, and inspect its observable properties.
+
+- Exercise 4.2.3: complete the `TODOs` in link:hands-on/lab3/smart-room.jcm[smart-room.jcm] to make all the agents to focus on the voting artifact.
+
+- Exercise 4.2.4: run the application, go to link:http://localhost:3272[http://localhost:3272] and check whether the observable properties of the voting artifact are listed as beliefs of the agents.
+
+=== Task 3: Instantiate and use the voting machine
+
+The voting machine is now ready — and the room controller agent is, in fact, already using it (see link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl]). Still, a few bits are missing:
+
+- Task 4.3.1: Complete the `TODOs` defined in link:lab3/smart-room-vm/src/agt/room_controler.asl[room_controler.asl] so that agent open a new voting when needed.
 
 
-- Task 3.2.2: Complete the `TODOs` defined in link:lab3/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents can focus on the voting machine and vote for their preferences.
+- Task 4.3.2: Complete the `TODOs` defined in link:lab3/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents use the voting machine and vote for their preferences.
 
-- Task 3.2.3: Complete the `TODO` defined in link:lab3/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents shows the current temperature in its log message.
+
+- Task 4.3.3: Complete the `TODO` defined in link:lab3/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents shows the current temperature in its log message.
 
 
 
 
 === Task 4: Implement a linked operation
 
-Your agents are happy with their brand new voting machine — and would like to showcase it to other agents via https://dweet.io/[Dweet.io]. Luckily, they already have a link:lab3/smart-room-vm/src/env/social/DweetArtifact.java[DweetArtifact] artifact template that they can use for this purpose.
+The agents are happy with their brand new voting machine — and would like to showcase it to other agents via https://dweet.io/[Dweet.io]. Luckily, they already have a link:lab3/smart-room-vm/src/env/social/DweetArtifact.java[DweetArtifact] artifact template that they can use for this purpose.
 
 Your task is to complete the link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl] agent program with the following steps (see `TODOs`):
 
-* Line 20: to create an instance of a `DweetArtifact` after creating the voting machine
+* Exercise 4.4.1: in  link:hands-on/lab3/smart-room.jcm[smart-room.jcm], create an instance of a `DweetArtifact` called `deeet` in the `room` workspace.
 
-* Line 23: to link the voting machine to the newly created `DweetArtifact` using the operation `linkArtifacts(ArtId1, "port", ArtId2)`
+* Exercise 4.4.2: link the voting machine to the newly created `DweetArtifact` using the operation `linkArtifacts(ArtId1, "port", ArtId2)`
 
-** note: the voting machine artifact template already defines an output port named `publish-port`
+** note 1: the voting machine artifact template already defines an output port named `publish-port`
 
-** for further examples and documentation on linking artifacts, see https://cartago.sourceforge.net/?page_id=126[Example 08 — Linkability] from https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples]
+** note 2: to inspect the information shared by the `dweet` artifact, use the following command: `curl  https://dweet.io:443/get/dweets/for/jacamo_wesaac23`
 
+** note 2: further examples and documentation on linking artifacts, see https://cartago.sourceforge.net/?page_id=126[Example 08 — Linkability] from https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples]
 
-If you enjoyed this practical session, make sure to check out https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples] for a complete tour of all features supported for the enviornment dimension.
+** note 3: check out https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples] for a complete tour of all features supported for the enviornment dimension.
 
 
 Note: the _personal assistant_ keeps asking the _room controller_ to change the temperature while it does not matches the agent's preference. To change the preference of the agents in running time, use the following command, replacing `<agent_id>` with the agent name and `<pref_temp>` with the preferred temperature.
