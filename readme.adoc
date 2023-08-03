@@ -31,7 +31,7 @@ Objectives:
 * Know the basic structure of JaCaMo applications;
 * Run a multi-agent application;
 * Understand the difference between agent implementation and agent instance;
-* Have a first experience with the concepts of _goals_, _beliefs_, _plans_, and _internal actions_.   
+* Have a first experience with the implementation of _goals_, _beliefs_, _plans_, and _internal actions_.   
 
 === Task 1: Run the initial project for the smart room scenario
 
