@@ -9,8 +9,15 @@
 +!open_voting[source(Ag)] 
    <- ?voting_id(Id);
       .print(Ag, "asked me to open a new voting. Openning voting #", Id+1) ;
-      //TODO (Task 3.2.1): open the voting (in the voting artifact)
+      //TODO (Task 4.3.1): open the voting (in the voting artifact)
       open; //<== APAGAR
+
+
+      
+      lookupArtifact(vote,VoteArtId);
+      lookupArtifact(dweet,DweetArtId);
+      //TODO (Exercise 4.4.2) : link the voting artifact to the dweet artifact
+      linkArtifacts(VoteArtId,"publish-port",DweetArtId); //<== APAGAR
    .
 
 // This plan is triggerd when a voting result becomes available

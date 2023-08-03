@@ -30,7 +30,7 @@ import jason.asSyntax.parser.ParseException;
 public class VotingMachine extends Artifact {
   private List<String> voters;
   private List<Integer> votes;
-  private int timeout = 15000;
+  private int timeout = 10000;
 
   public void init() {
     Object[] options = {15,20,25,30};
@@ -38,7 +38,7 @@ public class VotingMachine extends Artifact {
     defineObsProperty("options",optionTerms); 
     defineObsProperty("timeout", this.timeout); //<== APAGAR?
     defineObsProperty("voting_id",0); //<== APAGAR        
-    // TODO (Task 3.1.1): define a status property with values open/closed
+    // TODO (Task 4.1.1): define a status property with values open/closed
     defineObsProperty("voting_status","closed"); //<== APAGAR        
   }
 
@@ -63,13 +63,13 @@ public class VotingMachine extends Artifact {
       //this.timeout = 30000;
 
 
-      // TODO (Task 3.1.2): update the "voting_status" observable property to "open" to announce that voting is open
+      // TODO (Task 4.1.2): update the "voting_status" observable property to "open" to announce that voting is open
       getObsProperty("voting_status").updateValue("open"); //<== APAGAR
 
       
       
       int currentVotingId =  getObsProperty("voting_id").intValue();
-      // TODO (Task 3.1.2): increment the value of the "voting_id" observable property (use the currentVotingId variable)
+      // TODO (Task 4.1.2): increment the value of the "voting_id" observable property (use the currentVotingId variable)
       getObsProperty("voting_id").updateValue(currentVotingId+1); //<== APAGAR
 
       // TODO (Task 3): uncomment this line after implementing the countfown internal operation
@@ -99,24 +99,25 @@ public class VotingMachine extends Artifact {
   public void close() {
     
 
-    // TODO (Task 3.1.2): update the "voting_status" observable property to "close" to announce that voting is closed
+    // TODO (Task 4.1.2): update the "voting_status" observable property to "close" to announce that voting is closed
     getObsProperty("voting_status").updateValue("closed");; //<== APAGAR
 
     int result = computeResult(); //the result value is stored in the variable "result"
 
-    // TODO (Task 3.1.2): use a signal name "result" to expose the result 
+    // TODO (Task 4.1.2): use a signal name "result" to expose the result 
     signal("result",result); //<== APAGAR
 
     
 
     // TODO (Task 4): uncomment this block after completing the room controller agent program
-    // try {
-      // log("Publishing the result to dweet.io: " + result);
-      // execLinkedOp("publish-port", "dweet", String.valueOf(result));
-    // } catch (OperationException e) {
-    //   log("Failed to publish the result: " + e.getMessage());
-    // }
-
+    //<== APAGAR ou comentar
+     try {
+       log("Publishing the result to dweet.io: " + result);
+       execLinkedOp("publish-port", "dweet", String.valueOf(result));
+     } catch (OperationException e) {W
+       log("Failed to publish the result: " + e.getMessage());
+     }
+     
     log("Voting is closed. The result is " + result);
   }
 

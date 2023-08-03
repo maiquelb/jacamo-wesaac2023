@@ -18,7 +18,7 @@ now_is_warmer_than(T)
    : preference(P) &
      not temperature_in_range(P) &
      voting_status("closed")     
-   <- //TODO (Task 3.2.3): update the following message to include the value of the current temperature
+   <- //TODO (Task 4.3.3): update the following message to include the value of the current temperature
       .print("Current temperature is different of my preferred one, which is ", P);
       .send(rc,achieve,open_voting);
       .wait(voting_status("open"));
@@ -38,7 +38,7 @@ now_is_warmer_than(T)
       ?preference(Pref);
       ?closest(Pref, Options, Vote);
       .print("My preference is ", Pref, ", so I vote for ", Vote);      
-      // TODO (Task 3.2.2): invoke vote operation on voting machine artifact with the agent's Vote as a paratemer.   
+      // TODO (Task 4.3.2): invoke vote operation on voting machine artifact with the agent's Vote as a paratemer.   
       vote(Vote); //<==APAGAR
    .
 
