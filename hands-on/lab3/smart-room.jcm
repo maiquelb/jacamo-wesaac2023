@@ -1,0 +1,41 @@
+// This project illustrates a JaCaMo application for a smart room. The multi-agent system is composed
+// of a room controller agent and multiple personal assistant agents.
+
+// In this lab, we will explore environment-mediated coordination using a voting machine.
+
+mas smart_room {
+
+    agent pa1 : personal_assistant.asl {
+        beliefs: preference(20), tolerance(2)
+        join: room
+        focus: room.vote, room.hvac
+        goals: keep_temperature
+    }
+
+    agent pa2 : personal_assistant.asl {
+        beliefs: preference(30), tolerance(2)
+        join: room
+        focus: room.vote, room.hvac
+        goals: keep_temperature
+    }
+
+    agent pa3 : personal_assistant.asl {
+        beliefs: preference(22), tolerance(1)
+        join: room
+        focus: room.vote, room.hvac
+        goals: keep_temperature
+    }
+
+    agent rc : room_controller.asl {
+        focus: room.hvac, room.vote
+        //goals: voting([21,25,30])
+    }
+
+    workspace room {
+        artifact hvac: devices.HVAC(30)
+        artifact vote: voting.VotingMachine
+        artifact dweet: social.DweetArtifact("test_maiquel_wesaac23")
+    }
+
+    platform: jacamo.rest.JCMRest("--rest-port 8080")
+}
