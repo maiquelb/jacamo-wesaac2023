@@ -21,7 +21,7 @@ The objective is to develop an MAOP system to control the temperature of a room 
 
 * initially we have one agent that has the goal of maintaining a certain temperature
 
-image:doc/figs/smart-room1.png[]
+
 
 
 == Agent Dimension - Agent basics (Lab 1)
@@ -258,7 +258,13 @@ curl --request POST 'http://127.0.1.1:8080/agents/<agent_id>/command' --header '
 
 === Task 1: Reading and understanding an organization
 
-* Exercise 1: in this project the purpose is to coordinate the actions of agents when posting on a forum. There are two agents alice and bob; alice is responsible for posting a message and bob for retrieving the post. Open the project `lab4/e8`, read the `.jcm` file and the agents' program, and execute the application. Explain why is the displayed `Received message` content is empty? What does happen if `<- .wait(2000) ; retrievePost(-1) ;` replaces of line 7 in `src/agt/forum_agents.asl`?
+[[imgorg]]
+.Organizational specification
+image::doc/figs/smart-room-org.png[]
+
+* Exercise 5.1.1: open the project `lab5/smart-room-org'. Compare the organizational specification in  src/org/smart_house.xml with the the <<imgorg>> shown above. Try to identify groups, roles, goals, missions, role cardinalities, and goal decompositions
+
+open the project `lab5/smart-room-org`, read the `.jcm` file and the agents' program, and execute the application. Explain why is the displayed `Received message` content is empty? What does happen if `<- .wait(2000) ; retrievePost(-1) ;` replaces of line 7 in `src/agt/forum_agents.asl`?
 
 * Exercise 2: open the project `lab4/e9`, read the XML organization specification and identify the organization roles, goals, missions and norms. Execute the application, open the _organization inspector_ (http://localhost:3171) and verify the state of the agents' goals. What are the advantages and disadvantages of the organization approach to coordination compared with the approach in Exercise 1?
 
