@@ -1,0 +1,49 @@
+// smart room multi agent
+// rc + personal assistants
+
+mas smart_room {
+
+    agent pa1 : personal_assistant.asl {
+        beliefs: pref_temp(20)
+        join: room
+    }
+
+    agent pa2 : personal_assistant.asl {
+        beliefs: pref_temp(22)
+        join: room
+    }
+
+    agent pa3 : personal_assistant.asl {
+        beliefs: pref_temp(30)
+        join: room
+    }
+
+    agent rc : room_controller.asl {
+        focus: room.hvac
+        goals: voting([21,25,30])
+    }
+
+    workspace room {
+        artifact hvac: devices.HVAC(30)
+    }
+
+    workspace vmws {
+        artifact v1: voting.VotingMachine() {
+            focused-by: vm::rc
+        }
+        agents: pa1, pa2, pa3
+    }
+
+    organisation smart_house_org : smart_house.xml {
+        group r1 : room {
+            players: pa1 assistant
+                     pa2 assistant
+                     pa3 assistant
+                     rc  controller
+            responsible-for: temp_r1
+        }
+        scheme temp_r1: decide_temp
+    }
+
+    platform: jacamo.rest.JCMRest("--rest-port 8080")
+}
