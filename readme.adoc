@@ -260,22 +260,22 @@ curl --request POST 'http://127.0.1.1:8080/agents/<agent_id>/command' --header '
 
 [[imgorg]]
 .organizational specification
-image::doc/figs/smart-room-org.png[]
+image::doc/figs/smart-room-org-wesaac.png[]
 
 * Exercise 5.1.1: open the project `lab5/smart-room-org'. Compare the organizational specification in link:hands-on/lab5/smart-room-org/src/org/smart_house.xml[src/org/smart_house.xml]
   with the the <<imgorg>> shown above. Try to identify groups, roles, goals, missions, role cardinalities, and goal decompositions
 
-open the project `lab5/smart-room-org`, read the `.jcm` file and the agents' program, and execute the application. Explain why is the displayed `Received message` content is empty? What does happen if `<- .wait(2000) ; retrievePost(-1) ;` replaces of line 7 in `src/agt/forum_agents.asl`?
+* Exercise 5.1.2: there are some elements in the <<imgorg>> shown above that are not present in the the organizational specification in link:hands-on/lab5/smart-room-org/src/org/smart_house.xml[src/org/smart_house.xml]. Add these elements to the specification.
 
-* Exercise 2: open the project `lab4/e9`, read the XML organization specification and identify the organization roles, goals, missions and norms. Execute the application, open the _organization inspector_ (http://localhost:3171) and verify the state of the agents' goals. What are the advantages and disadvantages of the organization approach to coordination compared with the approach in Exercise 1?
+* Exercise 5.1.3: execute the application, link:http://localhost:3273[_organization inspector_] and observe the state of the organization.
 
-* Exercise 3: comment out the lines 15-21 in `src/agt/forum_agents.asl` and execute the application. Use the _organization inspector_ to verify why the application does not execute properly. Hint: Look at the msg_vacation scheme.
+* Exercise 5.1.3: execute the application, link:http://localhost:3272[_mind inspector_] and observe the beliefs of the agents.
+
+
 
 === Task 2: Changing the organization
 
-* Exercise 1: open the project `lab4/smart-room-org`, execute the application and analyze the results of the group and scheme in the _organization inspector_.
-
-* Exercise 2: change the maximum number of `assistant` to 2. Execute the application. What is the outcome? Change the organization to solve the problem and keeping the maximum number of `assistant` to 2?
+* Exercise 2: change the maximum number of `assistant` to 2. Execute the application. What is the outcome? 
 
 * Exercise 3: change the order of `announce_options` and `open_voting` in the scheme `decide_temp`. What changes do you observe in the outcome?
 
