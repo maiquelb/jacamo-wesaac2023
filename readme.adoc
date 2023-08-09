@@ -259,10 +259,11 @@ curl --request POST 'http://127.0.1.1:8080/agents/<agent_id>/command' --header '
 === Task 1: Reading and understanding an organization
 
 [[imgorg]]
-.Organizational specification
+.organizational specification
 image::doc/figs/smart-room-org.png[]
 
-* Exercise 5.1.1: open the project `lab5/smart-room-org'. Compare the organizational specification in  src/org/smart_house.xml with the the <<imgorg>> shown above. Try to identify groups, roles, goals, missions, role cardinalities, and goal decompositions
+* Exercise 5.1.1: open the project `lab5/smart-room-org'. Compare the organizational specification in link:hands-on/lab5/smart-room-org/src/org/smart_house.xml[src/org/smart_house.xml]
+  with the the <<imgorg>> shown above. Try to identify groups, roles, goals, missions, role cardinalities, and goal decompositions
 
 open the project `lab5/smart-room-org`, read the `.jcm` file and the agents' program, and execute the application. Explain why is the displayed `Received message` content is empty? What does happen if `<- .wait(2000) ; retrievePost(-1) ;` replaces of line 7 in `src/agt/forum_agents.asl`?
 
