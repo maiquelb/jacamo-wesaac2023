@@ -20,23 +20,23 @@
         <scheme id="decide_temp">
             <goal id="voting">
                 <plan operator="sequence">
-                    <goal id="announce_options" />
-                    <goal id="open_voting" />
-                    <goal id="ballot" ttf="10 seconds">
+                    <goal id="options_announced" />
+                    <goal id="voting_open" />
+                    <goal id="ballot_done" ttf="10 seconds">
                         <argument id="voting_machine_id" />
                     </goal>
-                    <goal id="close_voting" />
+                    <goal id="voting_closed" />
                 </plan>
             </goal>
 
             <mission id="mVote" min="1">
-                <goal id="ballot" />
+                <goal id="ballot_done" />
             </mission>
 
             <mission id="mController" min="1">
-                <goal id="announce_options" />
-                <goal id="open_voting" />
-                <goal id="close_voting" />
+                <goal id="options_announced" />
+                <goal id="voting_open" />
+                <goal id="voting_closed" />
             </mission>
         </scheme>
 

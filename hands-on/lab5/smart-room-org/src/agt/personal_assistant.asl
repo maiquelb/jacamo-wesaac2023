@@ -1,22 +1,61 @@
-+!ballot[scheme(S)]
-  <- .wait(1000) ; // thinking on how to vote...
-     // get the name of the voting machine artifact
-     // defined for organizational goal "vote"
-     ?goalArgument(_, ballot, "voting_machine_id", VMName) ;
-     // get the workspace id where the voting machine is
-     ?joined(vmws, VWId) ;
-     lookupArtifact(VMName, VMId)[wid(VWId)] ;
-     // focus on the voting VotingMachine using namespace vm
-     vm::focus(VMId)[wid(VWId)] ;
 
-     // consult the temperature options
-     ?pref_temp(Pref) ;
-     ?options(Options) ;
+// Checks that the current temperature is close to the target 
+// temperature (+/- some tolerance level)
+temperature_in_range(T)
+	:- not now_is_colder_than(T) & not now_is_warmer_than(T).
+
+// Checks that the current temperature is not lower than the 
+// target temperature above a tolerance level
+now_is_colder_than(T)
+	:- temperature(C) & tolerance(DT) & (T - C) > DT.
+
+// Checks that the current temperature is not higher than the 
+// target temperature above a tolerance level
+now_is_warmer_than(T)
+	:- temperature(C) & tolerance(DT) & (C - T) > DT.
+
++!keep_temperature 
+   //: preference(P) & temperature(C) & P\==C &
+   : preference(P) &
+     not temperature_in_range(P) &
+     voting_status("closed")     
+   <- //TODO (Task 4.3.3): update the following message to include the value of the current temperature
+      .print("Current temperature is different of my preferred one, which is ", P);
+      .send(rc,achieve,open_voting);
+      .wait(voting_status("open"));
+      !keep_temperature;
+       .
+
++!keep_temperature
+   <- .wait(1000);
+      !keep_temperature.
+
+
+
+
+//----------------- Greeting management --------------   
+
++!greet : language(english)
+    <- .print("hello world.").            
+
++!greet : language(french)
+    <- .print("bonjour.").     
+
++!greet
+    <- .print("I do not know how to greet.").    
+
+
+
++!ballot_done
+  <- 
+     ?preference(Pref) ; // consult the agent's preference
+     ?options(Options) ; // consult the temperature options
      ?closest(Pref, Options, Vote) ;
 
      // vote
      .print("Vote ", Vote) ;
-     vm::vote(Vote) .
+     vote(Vote) .
+     
 
 
 // closest(Pref,Options,V): discovers the Option closser to Pref

@@ -1,37 +1,33 @@
-+!voting(Options)
-   <- +options(Options) .
+options([15,20,25,30]).
 
-+!announce_options[scheme(S)]
+
++!options_announced
    <- ?options(Options) ;
       .broadcast(tell, options(Options)) .
 
-+!open_voting[scheme(S)]
-   <- // get voters from organization (agents playing assistant)
-      .wait(100) ;
-      .findall(A, play(A, assistant, _), Voters);
 
-      // get the voting options 
-      ?options(Options) ;
-
-      // open "voting machine" for votes
-      vm::open(Options, Voters, 10000);
-
-      .print("Options are ", Options, " voters are ", Voters);
-
-      // set the argument of organizational goal "vote"
-      setArgumentValue(ballot, voting_machine_id, v1)[artifact_name(S)] .
-
-+!close_voting[scheme(S)]
-   <- .print("Time is out, the vote should now be closed.") ;
-      vm::close .
-
-+vm::result(T)[artifact_name(ArtName)]
-   <- .println("Creating a new goal to set temperature to ", T) ;
-      .drop_desire(temperature(_)) ;
-      !temperature(T) .
+// if the voting is open, do nothing.
++!voting_open : voting_status("open").
 
 
-tolerance(2) . // used in temp_management
+//if the voting is closed, open the votation
++!voting_open
+   <- ?voting_id(Id);
+      .print(Ag, "Openning voting #", Id+1) ;
+      open;
+   .
+
+// This plan is triggerd when a voting result becomes available
++result(T)[artifact_name(ArtName)]
+   <- .println("Creating a new goal to set temperature to ",T);
+      .drop_desire(temperature(_));
+      !temperature(T)
+   .
+
++!voting_closed
+   <- close.
+
+//tolerance(2) . // used in temp_management
 { include("temp_management.asl") }
 
 { include("$jacamoJar/templates/common-cartago.asl") }

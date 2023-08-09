@@ -17,68 +17,96 @@ import jason.asSyntax.ListTerm;
 import jason.asSyntax.parser.ParseException;
 
 
+/**
+ * This class implements a voting machine used to vote among a number of options espressed as integer
+ * values. In our scenario, agents instantiate and use voting machines to reach consensus on the
+ * target temperature to be set in a shared room.
+ */
+@ARTIFACT_INFO(
+  outports = {
+    @OUTPORT(name = "publish-port")
+  }
+)
 public class VotingMachine extends Artifact {
   private List<String> voters;
   private List<Integer> votes;
-  private int timeout;
+  private int timeout = 10000;
 
   public void init() {
-    defineObsProperty("status", "closed");
-    defineObsProperty("options", "");
+    //Object[] options = {15,20,25,30};
+    //ListTerm optionTerms = createOptionTermsList(options);
+    //defineObsProperty("options",optionTerms); 
+    defineObsProperty("timeout", this.timeout); //<== APAGAR?
+    defineObsProperty("voting_id",0); //<== APAGAR        
+    // TODO (Task 4.1.1): define a status property with values open/closed
+    defineObsProperty("voting_status","closed"); //<== APAGAR        
   }
 
   @OPERATION
-  public void open(Object[] options, Object[] voters, int timeout) {
-    this.voters = new ArrayList<>();
-    this.votes = new ArrayList<>();
-    this.timeout = timeout;
+  public void open() {
+    // Checks that voting is closed — and do nowhint if not
+    if (getObsProperty("voting_status").getValue().equals("closed")) {
+    
+      this.voters = new ArrayList<>();
+      this.votes = new ArrayList<>();
 
-    ListTerm optionTerms = createOptionTermsList(options);
+      /*for (Object v: voters) {
+        this.voters.add(v.toString());
+      }*/
+      this.voters.clear(); //when the poll opens, there is no voter yet
 
-    for (Object v: voters) {
-      this.voters.add(v.toString());
+      //ListTerm optionTerms = createOptionTermsList(options);
+      // TODO (Task 1): expose the options in optionTerms as an observable property named "options"
+      //                (the value of the observable property must be the optionTerms)
+        //defineObsProperty("options",optionTerms); //<== APAGAR
+
+      //this.timeout = 30000;
+
+
+      // TODO (Task 4.1.2): update the "voting_status" observable property to "open" to announce that voting is open
+      getObsProperty("voting_status").updateValue("open"); //<== APAGAR
+
+      
+      
+      int currentVotingId =  getObsProperty("voting_id").intValue();
+      // TODO (Task 4.1.2): increment the value of the "voting_id" observable property (use the currentVotingId variable)
+      getObsProperty("voting_id").updateValue(currentVotingId+1); //<== APAGAR
+
+      
     }
-
-    //defineObsProperty("options", optionTerms);
-    defineObsProperty("timeout", this.timeout);
-    getObsProperty("options").updateValue(optionTerms);
-    getObsProperty("status").updateValue("open");
   }
 
   @OPERATION
   public void vote(int vote) {
     // Checks that voting is open — and throws a failure if not
-    if (getObsProperty("status").getValue().equals("close")) {
+    if (getObsProperty("voting_status").getValue().equals("close")) {
       failed("The voting machine is closed!");
     }
-
+    
     // Checks if the agent invoking the operation has already voted
-    if (voters.remove(getCurrentOpAgentId().getAgentName())) {
-      // If not, then accept the vote
-      votes.add((Integer) vote);
-    } else {
-      // Otherwise, throw a failure
-      failed("You've already voted!");
-    }
+    if(voters.contains(getCurrentOpAgentId().getAgentName()))
+        failed("You've already voted!");
+
+    // If everithing is fine, accept the vote
+    votes.add((Integer) vote);
+    voters.add(getCurrentOpAgentId().getAgentName());        
+    log("recorded vote " + vote + " - " + getCurrentOpAgentId().getAgentName());
   }
 
-  @OPERATION
+  @OPERATION  
   public void close() {
-    int result = computeResult();
+    
+    getObsProperty("voting_status").updateValue("closed");
 
-    defineObsProperty("result", result);
-    getObsProperty("status").updateValue("closed");
-  }
-
-  @INTERNAL_OPERATION
-  private void countdown() {
-    await_time(timeout);
-    log("Voting is closing!");
-    close();
+    int result = computeResult(); //the result value is stored in the variable "result"
+    
+    signal("result",result); //<== APAGAR
+     
+    log("Voting is closed by " + getCurrentOpAgentId().getAgentName() + ". The result is " + result);
   }
 
   // This method is used to convert datum from Jason to Java
-  private ListTerm createOptionTermsList(Object[] options) {
+  /*private ListTerm createOptionTermsList(Object[] options) {
     ListTerm optionTerms = ASSyntax.createList();
 
     for (Object o: options) {
@@ -90,7 +118,7 @@ public class VotingMachine extends Artifact {
     }
 
     return optionTerms;
-  }
+  }*/
 
   // This method is used to compute the winner
   private int computeResult() {

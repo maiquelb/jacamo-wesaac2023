@@ -4,35 +4,39 @@
 mas smart_room {
 
     agent pa1 : personal_assistant.asl {
-        beliefs: pref_temp(20)
+        beliefs: preference(20), tolerance(2)
+        //goals: keep_temperature
         join: room
+        focus: room.hvac, room.vote 
     }
 
     agent pa2 : personal_assistant.asl {
-        beliefs: pref_temp(22)
+        beliefs: preference(30), tolerance(2)
+        //goals: keep_temperature
         join: room
+        focus: room.hvac, room.vote 
+        
     }
 
     agent pa3 : personal_assistant.asl {
-        beliefs: pref_temp(30)
+        beliefs: preference(22), tolerance(1)
+        //goals: keep_temperature
         join: room
+        focus: room.hvac, room.vote 
     }
 
-    agent rc : room_controller.asl {
-        focus: room.hvac
-        goals: voting([21,25,30])
+    agent rc : room_controller.asl {    
+        join: room
+        focus: room.hvac, room.vote 
     }
+
+
 
     workspace room {
         artifact hvac: devices.HVAC(30)
+        artifact vote: voting.VotingMachine        
     }
 
-    workspace vmws {
-        artifact v1: voting.VotingMachine() {
-            focused-by: vm::rc
-        }
-        agents: pa1, pa2, pa3
-    }
 
     organisation smart_house_org : smart_house.xml {
         group r1 : room {
