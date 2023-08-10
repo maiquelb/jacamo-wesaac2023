@@ -275,11 +275,13 @@ image::doc/figs/smart-room-org-wesaac.png[]
 
 === Task 2: Changing the organization
 
-* Exercise 2: change the maximum number of `assistant` to 2. Execute the application. What is the outcome? 
+* Exercise 5.2.1: change the maximum number of `assistant` to 2. Execute the application. What is the outcome? 
 
-* Exercise 3: change the order of `announce_options` and `open_voting` in the scheme `decide_temp`. What changes do you observe in the outcome?
+* Exercise 5.2.2: change the order of `options_announced` and `voting_open` in the scheme `decide_temp`. What changes do you observe in the outcome?
 
-* Exercise 4: parallelize the execution of the `announce_options` and `open_voting`. Analyze the result of the new scheme in the _organization inspector_.
+* Exercise 5.2.3: parallelize the execution of the `announce_options` and `open_voting`. Analyze the result of the new scheme in the _organization inspector_.
+
+* Exercise 5.2.4: execute the system and observe whether all the agents voted. If that is not the case, modify the organizational specification so that every agent votes according to their preference.
 
 * Exercise 5: replace line 14 in `src/agt/personal_assistant.asl` (`?options(Options)`) by `?vm::options(Options) ;`. This change allows to simplify the `decide_temp` scheme and the `src/agt/room_controller.asl` agent code. Identify and make the simplification.
 
