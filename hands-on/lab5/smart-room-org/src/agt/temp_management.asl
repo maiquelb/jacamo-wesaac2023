@@ -8,16 +8,16 @@ now_is_warmer_than(T)
 	:- temperature(C) & tolerance(DT) & (C - T) > DT.
 
 +!temperature(T): temperature_in_range(T)
-	<- 	println("Temperature achieved: ",T).
+	<- 	.print("Temperature achieved: ",T).
 
 +!temperature(T): now_is_colder_than(T)
-	<-  println("It is too cold -> heating...");
+	<-  .print("It is too cold -> heating...");
 	    startHeating;
 		!heat_until(T).
 
 +!heat_until(T): temperature_in_range(T)
  	<-  stopAirConditioner;
- 		println("Temperature achieved ",T).
+ 		.print("Temperature achieved ",T).
 
 +!heat_until(T): now_is_colder_than(T)
 	<-  .wait(100);
@@ -28,13 +28,13 @@ now_is_warmer_than(T)
 	    !temperature(T).
 
 +!temperature(T): now_is_warmer_than(T)
-	<-  println("It is too hot -> cooling...");
+	<-  .print("It is too hot -> cooling...");
 	    startCooling;
 		!cool_until(T).
 
 +!cool_until(T): temperature_in_range(T)
  	<- stopAirConditioner;
- 	   println("Temperature achieved ",T).
+ 	   .print("Temperature achieved ",T).
 
 +!cool_until(T): now_is_warmer_than(T)
 	<-  .wait(100);

@@ -71,7 +71,9 @@ closest(P,[_|T],V) :- closest(P,T,V). // keep looking for options in the list
 { include("$moiseJar/asl/org-obedient.asl") }
 
 // commit to missions when permitted
-+permission(Ag,Norm,committed(Ag,Mission,Scheme),Deadline)[artifact_id(ArtId),workspace(_,W)]
+/*+permission(Ag,Norm,committed(Ag,Mission,Scheme),Deadline)[artifact_id(ArtId),workspace(_,W)]
     : .my_name(Ag)
    <- .print("I am permitted to commit to ", Mission," on ", Scheme,"... doing ");
       commitMission(Mission)[artifact_name(Scheme), wid(W)].
+*/
+      
