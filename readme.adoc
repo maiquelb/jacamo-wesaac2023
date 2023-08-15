@@ -1,6 +1,6 @@
 # Multi-Agent Oriented Programming Tutorial
 :toc: right
-:author: 23rd European Agent Systems Summer School
+:author: Maiquel de Brito
 :date: July 2023
 :source-highlighter: coderay
 :coderay-linenums-mode: inline
@@ -9,20 +9,14 @@
 
 This guide contains practical material for the tutorial _Multi-Agent Oriented Programming_ at https://sites.google.com/inf.ufpel.edu.br/wesaac2023[17th Workshop-School on Agents, Environments and Applications (WESAAC 2023)], 2023, Pelotas - Brazil.
 
+This tutorial is adapted from adapted from the Multi-Agent Oriented Programming Tutorial given at EASSS 2023 by Andrei Ciortea, Jomi F. Hübner, and Luis Gustavo Nardin. Figures are taken/adapted from that tutorial and from the book _Multi-Agent Oriented Programming: Programming Multi-Agent Systems Using JaCaMo_ (O. Boissier, R. H. Bordini, J.F. Hubner, A. Ricci. The MIT Press, 2020).
 
-== Smart Room Scenario
+==== Requirements
+* Java JDK 17+
+* VSCode
 
-The objective is to develop an MAOP system to control the temperature of a room so that it reaches some desired temperature
-
-* The room is equipped with a "Heating, Ventilating and Air  Conditioning" (HVAC), that provides
-
-** the current room temperature
-** operations to start cooling, start heating, and stop the machine
-
-* initially we have one agent that has the goal of maintaining a certain temperature
-
-
-
+== Application scenario
+In this tutorial, we will develop a MAOP where some agents that are _personal assistants_. They interact with each other and act in the environment.
 
 == Agent Dimension - Agent basics (Lab 1)
 
@@ -33,13 +27,14 @@ Objectives:
 * Understand the difference between agent implementation and agent instance;
 * Have a first experience with the implementation of _goals_, _beliefs_, _plans_, and _internal actions_.   
 
+
+=== Scenario
+In this lab, some _personal assistant_ agents have the simple task of to greet each other.
+
 === Task 1: Run the initial project for the smart room scenario
 
-The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning this repository (https://github.com/maiquelb/jacamo-wesaac2023). Java JDK 17+ and VSCode should be installed locally in this case.
+Clone the repository at (https://github.com/maiquelb/jacamo-wesaac2023). Then, run the initial projec by typing the commands below in the terminal:
 
-
-
-To run the initial project, type the commands below in the terminal:
 ----
 cd hands-on/lab1
 ./gradlew
@@ -53,10 +48,20 @@ cd hands-on/lab1
 
 * Exercise 1.2.2: open the _mind inspector_ for agents `bob` and `marie`. Compare the beliefs there with those identified in the program. Are they the same? Are they represented the same way? 
 
-=== Task 3: Extending the agent program
-* Exercise 1.3.1: Add a new personal assistant agent to the system. This agent should greet in portuguese ("Bom dia.").
+* Exercise 1.2.3: observe the plan in lines 13--14. What is the difference between this plan and the other ones?
 
-* Exercise 1.3.2: Set the language of bob to japanese without adding any plan. Run the system and observe the output. Handle exceptions if needed.
+* Exercise 1.2.4: type the command below and observe the behaviour of the agent. Open the _mind inspector_ and check whether the belief base of the agent changes after running this command.
+
+----
+curl --request POST 'http://127.0.1.1:8080/agents/<agent_id>/command' --header 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'c=-+day_of_week(sunday)'
+----
+
+=== Task 3: Extending the agent program
+* Exercise 1.3.1: make the agent `bob` to inform the current date using the plan _inform_date_.
+
+* Exercise 1.3.2: Add a new personal assistant agent to the system. This agent should greet in portuguese ("Bom dia.").
+
+* Exercise 1.3.3: Set the language of bob to japanese without adding any plan. Run the system and observe the output. Handle exceptions if needed.
 
 
 ==== Questons:
@@ -73,11 +78,26 @@ Objectives:
 * Understand the difference between declarative and procedural goals;
 * Understand more complex agent design patterns.
 
+=== Scenario
+
+Now, the _personal assisntant_ controls the temperature of a room. It has the goal to mantain the temperature around a certain value.
+
+The room is equipped with a "Heating, Ventilating and Air  Conditioning" (HVAC), that provides:
+
+* the current room temperature
+* operations to start cooling, start heating, and stop the machine
+
+
+[[imgorg]]
+.smart room scenario
+image::doc/figs/smart-room1.png[]
+
+
 === Task 1: Run the initial project for the smart room scenario
 
-To run the initial project, type the commands below in the terminal:
+To run the smart room project, type the commands below in the terminal:
 ----
-cd lab2/
+cd lab2/smart-room
 ./gradlew
 ----
 
@@ -100,13 +120,13 @@ replacing the last number 10 by the current temperature of the room.
 
 === Task 3: Improve the implementation
 
-* Exercise 8: add a new plan to print the current state of the HVAC.
+* Exercise 2.3.1: add a new plan to print the current state of the HVAC.
 
-* Exercise 9: change the plans of the previous exercise so that when the hvac state is `"cooling"` it is printed "so cool" and, when the state is `"heating"` it is printed "so hot".
+* Exercise 2.3.2: change the plans of the previous exercise so that when the hvac state is `"cooling"` it is printed "so cool" and, when the state is `"heating"` it is printed "so hot".
 
-* Exercise 10: open the project in folder `lab2/e10` and take a look at the room controller program. There is a difference in the last lines (line 17). Evaluate the reasons for that modification and its problems. Some ideas about how to fix?
+* Exercise 2.3.3: open the project in folder `lab2/e233` and take a look at the room controller program. There is a difference in the last lines (line 17). Evaluate the reasons for that modification and its problems. Some ideas about how to fix?
 
-* Exercise 11: open the project in folder `lab2/e11` and take a look at the room controller program. The target temperature is as an argument of goal `keep_temperature`. The project, as it is, works. But what happens if a line like `!keep_temperature(35)` is added in the program? Explain the behavior produced by this change.
+* Exercise 2.3.4: open the project in folder `lab2/e234` and take a look at the room controller program. The target temperature is as an argument of goal `keep_temperature`. The project, as it is, works. But what happens if a line like `!keep_temperature(35)` is added in the program? Explain the behavior produced by this change.
 
 
 ==== Questons:
@@ -173,6 +193,7 @@ cd lab2/smart-room-ma
 
 == Environment Dimension (Lab 4)
 Objectives:
+
 * Exercise the basic skills to implement _artifacts_, which are the JaCaMo environment building blocks;
 * Create and initialize _artifacts_;
 * Create and update _observable properties_;
@@ -180,6 +201,10 @@ Objectives:
 * Implement _operations_.
 
 Consider a new scenario where the _personal assistant_ cannot access the hvac. Such access is restricted to the _room controller_. To keep the desirable temperature, the _personal assistant_ must ask the _room controller_ to manage the hvac. The _room controler_ then manages a voting to check the preference of all the _personal assistant_ and manages the hvac accordingly.
+
+[[imgorg]]
+.smart room scenario
+image::doc/figs/smart-room-env.png[]
 
 //We will now implement the voting mechanism as an artifact: has no longer access to the hvac. 
 
@@ -192,7 +217,7 @@ Consider a new scenario where the _personal assistant_ cannot access the hvac. S
 
 === Task 1: Implement the usage interface for the voting machine
 
-The artifact template for our voting machine is defined in the link:lab3/smart-room-vm/src/env/voting/VotingMachine.java[VotingMachine.java] class, but the usage interface is not yet fully implemented. Your first task is to complete this implementation. The following sub-tasks will guide you through it, note also the `TODO` items marked in comments in the Java class.
+This lab uses the project at `hands-on/lab4/smart-room-vm`. The artifact template for our voting machine is defined in the link:hands-on/lab4/smart-room-vm/src/env/voting/VotingMachine.java[VotingMachine.java] class, but the usage interface is not yet fully implemented. Your first task is to complete this implementation. The following sub-tasks will guide you through it, note also the `TODO` items marked in comments in the Java class.
 
 - Exercise 4.1.1: complete the artifact's `init` method by defining an observable property `voting_status` and setting its value to  `closed`.
 - Exercise 4.1.2: complete the implementation of the `open` and `close` operations.
@@ -283,7 +308,22 @@ image::doc/figs/smart-room-org-wesaac.png[]
 
 * Exercise 5.2.4: execute the system and observe whether all the agents voted. If that is not the case, modify the organizational specification so that every agent votes according to their preference.
 
-* Exercise 5: replace line 14 in `src/agt/personal_assistant.asl` (`?options(Options)`) by `?vm::options(Options) ;`. This change allows to simplify the `decide_temp` scheme and the `src/agt/room_controller.asl` agent code. Identify and make the simplification.
+* Exercise 5.2.5: extend the organizational specification so that the _controller_ is obliged to announce the result of the voting. Change also the _room controller_ code so that it fulfills this obligation.
+
+
+
+== Task 3: Agents deploying the organization
+
+In the previous task, the organization is created by the application
+designer using the jcm file. The agents then execute in the
+resulting organization entity. However, in some applications, the agents may need themselves to create or change the organization entity. In this task, the agents create new voting schemes whenever the temperature differs from their preferences.
+
+* Exercise 5.3.1: open the project `lab5/smart-room-org'. Compare the link:hands-on/lab5/smart-room-org-2/smart-room.jcm[smart-room.jcm] with link:hands-on/lab5/smart-room-org/smart-room.jcm[the one of the previous task]. What is different?
+
+* Exercise 5.3.2: complete the implementation of the link:hands-on/lab5/smart-room-org-2/src/agt/personal_assistant.asl[_personal assistant_] (line 30) to create a new voting schema.
+
+* Exercise 5.3.3: complete the implementation of the link:hands-on/lab5/smart-room-org-2/src/agt/personal_assistant.asl[_personal assistant_] (line 32) make the existing group to manage the voting.
+
 
 === Task 3: Handling the state of the organization
 
