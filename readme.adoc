@@ -31,7 +31,7 @@ Objectives:
 === Scenario
 In this lab, some _personal assistant_ agents have the simple task of to greet each other.
 
-=== Task 1: Run the initial project for the smart room scenario
+=== Task 1: Run the first JaCaMo application
 
 Clone the repository at (https://github.com/maiquelb/jacamo-wesaac2023). Then, run the initial project by typing the commands below in the terminal:
 
