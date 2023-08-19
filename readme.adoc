@@ -33,7 +33,7 @@ In this lab, some _personal assistant_ agents have the simple task of to greet e
 
 === Task 1: Run the initial project for the smart room scenario
 
-Clone the repository at (https://github.com/maiquelb/jacamo-wesaac2023). Then, run the initial projec by typing the commands below in the terminal:
+Clone the repository at (https://github.com/maiquelb/jacamo-wesaac2023). Then, run the initial project by typing the commands below in the terminal:
 
 ----
 cd hands-on/lab1
