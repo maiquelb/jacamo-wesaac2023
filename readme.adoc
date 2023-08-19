@@ -50,7 +50,7 @@ cd hands-on/lab1
 
 * Exercise 1.2.3: observe the plan in lines 13--14 of the personal assistant agent code (file link:hands-on/lab1/src/agt/personal_assistant.asl[`src/agt/personal_assistant.asl`]). What is the difference between this plan and the other ones?
 
-* Exercise 1.2.4: type the command below and observe the behaviour of the agent. Open the _mind inspector_ and check whether the belief base of the agent changes after running this command.
+* Exercise 1.2.4: type the command below, replacing `<agent_id>` by the identifier of an agent (either `bob` or `marie`). Observe the behaviour of the agent. Open the link:http://localhost:3272/[_mind inspector_]  and check whether the belief base of the agent has changed after running this command.
 
 ----
 curl --request POST 'http://127.0.1.1:8080/agents/<agent_id>/command' --header 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'c=-+day_of_week(sunday)'
