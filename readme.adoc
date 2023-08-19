@@ -48,7 +48,7 @@ cd hands-on/lab1
 
 * Exercise 1.2.2: open the link:http://localhost:3272/[_mind inspector_] for the agents `bob` and `marie`. Compare the beliefs there with those identified in the program. Are they the same? Are they represented the same way? 
 
-* Exercise 1.2.3: observe the plan in lines 13--14. What is the difference between this plan and the other ones?
+* Exercise 1.2.3: observe the plan in lines 13--14 of the personal assistant agent code (file link:hands-on/lab1/src/agt/personal_assistant.asl[`src/agt/personal_assistant.asl`]). What is the difference between this plan and the other ones?
 
 * Exercise 1.2.4: type the command below and observe the behaviour of the agent. Open the _mind inspector_ and check whether the belief base of the agent changes after running this command.
 
