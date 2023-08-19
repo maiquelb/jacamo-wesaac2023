@@ -294,7 +294,7 @@ image::doc/figs/smart-room-org-wesaac.png[]
 
 * Exercise 5.1.3: execute the application, link:http://localhost:3273[_organization inspector_] and observe the state of the organization.
 
-* Exercise 5.1.3: execute the application, link:http://localhost:3272[_mind inspector_] and observe the beliefs of the agents.
+* Exercise 5.1.4: execute the application, link:http://localhost:3272[_mind inspector_] and observe the beliefs of the agents.
 
 
 
