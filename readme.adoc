@@ -9,7 +9,7 @@
 
 This guide contains practical material for the tutorial _Multi-Agent Oriented Programming_ at https://sites.google.com/inf.ufpel.edu.br/wesaac2023[17th Workshop-School on Agents, Environments and Applications (WESAAC 2023)], 2023, Pelotas - Brazil.
 
-This tutorial is adapted from adapted from the Multi-Agent Oriented Programming Tutorial given at EASSS 2023 by Andrei Ciortea, Jomi F. Hübner, and Luis Gustavo Nardin. Figures are taken/adapted from that tutorial and from the book _Multi-Agent Oriented Programming: Programming Multi-Agent Systems Using JaCaMo_ (O. Boissier, R. H. Bordini, J.F. Hubner, A. Ricci. The MIT Press, 2020).
+This tutorial is adapted from the Multi-Agent Oriented Programming Tutorial given at EASSS 2023 by Andrei Ciortea, Jomi F. Hübner, and Luis Gustavo Nardin. Figures are taken/adapted from that tutorial and from the book _Multi-Agent Oriented Programming: Programming Multi-Agent Systems Using JaCaMo_ (O. Boissier, R. H. Bordini, J.F. Hubner, A. Ricci. The MIT Press, 2020).
 
 ==== Requirements
 * Java JDK 17+
