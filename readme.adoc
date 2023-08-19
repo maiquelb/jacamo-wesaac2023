@@ -74,13 +74,13 @@ curl --request POST 'http://127.0.1.1:8080/agents/<agent_id>/command' --header '
 Objectives:
 
 * Have a first experience with programming agents that perceive and act upon the environment (without to implement it);
-* Understand the difference between _internal actions_ and _external actions_
+* Understand the difference between _internal actions_ and _external actions_;
 * Understand the difference between declarative and procedural goals;
 * Understand more complex agent design patterns.
 
 === Scenario
 
-Now, the _personal assisntant_ controls the temperature of a room. It has the goal to mantain the temperature around a certain value.
+Now, the _personal assintant_ controls the temperature of a room. It has the goal to mantain the temperature around a certain value.
 
 The room is equipped with a "Heating, Ventilating and Air  Conditioning" (HVAC), that provides:
 
