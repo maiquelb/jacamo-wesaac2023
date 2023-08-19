@@ -6,6 +6,12 @@
 +!greet : language(french)
     <- .print("bonjour.").                
 
++!inform_date
+   <- .date(Y,M,D); //check the current date
+      .print("Current date ", Y, "-", M, "-", D).
+
++day_of_week(D)
+   <- .print("Today is ", D).
 
 
 //-------------------------------------------------------------    

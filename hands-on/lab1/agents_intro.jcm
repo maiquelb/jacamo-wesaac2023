@@ -1,14 +1,14 @@
 mas agents_intro {
 
     agent bob: personal_assistant.asl {
-        //goals: greet
         beliefs: language(english)
     }
     
     agent marie: personal_assistant.asl {
-        //goals: greet
         beliefs: language(french)
     }
+
+    platform: jacamo.rest.JCMRest("--rest-port 8080")
 
     
 }
