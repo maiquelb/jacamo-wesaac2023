@@ -200,7 +200,7 @@ Objectives:
 * Use _signals_;
 * Implement _operations_.
 
-Consider a new scenario where the _personal assistant_ cannot access the hvac. Such access is restricted to the _room controller_. To keep the desirable temperature, the _personal assistant_ must ask the _room controller_ to manage the hvac. The _room controler_ then manages a voting to check the preference of all the _personal assistant_ and manages the hvac accordingly.
+Consider a new scenario where the _personal assistant_ cannot access the hvac. Such access is restricted to another agent called _room controller_. To keep the desirable temperature, the _personal assistant_ must ask the _room controller_ to manage the hvac. The _room controler_ then manages a voting to check the preference of all the _personal assistant_ and manages the hvac accordingly.
 
 [[imgorg]]
 .smart room scenario
@@ -217,15 +217,15 @@ image::doc/figs/smart-room-env.png[]
 
 === Task 1: Implement the usage interface for the voting machine
 
-This lab uses the project at `hands-on/lab4/smart-room-vm`. The artifact template for our voting machine is defined in the link:hands-on/lab4/smart-room-vm/src/env/voting/VotingMachine.java[VotingMachine.java] class, but the usage interface is not yet fully implemented. Your first task is to complete this implementation. The following sub-tasks will guide you through it, note also the `TODO` items marked in comments in the Java class.
+This lab uses the project at link:hands-on/lab4/smart-room-vm[`hands-on/lab4/smart-room-vm`]. The artifact template for our voting machine is defined in the link:hands-on/lab4/smart-room-vm/src/env/voting/VotingMachine.java[VotingMachine.java] class, but the usage interface is not yet fully implemented. Your first task is to complete this implementation. The following sub-tasks will guide you through it, note also the `TODO` items marked in comments in the Java class.
 
-- Exercise 4.1.1: complete the artifact's `init` method by defining an observable property `voting_status` and setting its value to  `closed`.
+- Exercise 4.1.1: complete the artifact's `init` method by defining an observable property `voting_status` and setting its value to  `"closed"`.
 - Exercise 4.1.2: complete the implementation of the `open` and `close` operations.
 
 To solve these tasks, you will have to define and work with observable properties. Tips for a quick start:
 
-- you can have a look at the implementation of the link:lab3/smart-room-vm/src/env/devices/HVAC.java[HVAC artifact]
-- you can check out https://cartago.sourceforge.net/?page_id=69[Example 01 — Artifact definition, creation, and use] from https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples]
+- you can have a look at the implementation of the link:hands-on/lab4/smart-room-vm/src/env/devices/HVAC.java[HVAC artifact];
+- you can check out https://cartago.sourceforge.net/?page_id=69[Example 01 — Artifact definition, creation, and use] from https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples].
 
 
 === Task 2: Instantiate the voting machine an make it available the agents
@@ -242,26 +242,26 @@ The implementation of the voting machine artifact is ready. Now, it is necessary
 
 === Task 3: Instantiate and use the voting machine
 
-The voting machine is now ready — and the room controller agent is, in fact, already using it (see link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl]). Still, a few bits are missing:
+The voting machine is now ready — and the room controller agent is, in fact, already using it. Still, a few bits are missing:
 
-- Task 4.3.1: Complete the `TODOs` defined in link:lab3/smart-room-vm/src/agt/room_controler.asl[room_controler.asl] so that agent open a new voting when needed.
-
-
-- Task 4.3.2: Complete the `TODOs` defined in link:lab3/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents use the voting machine and vote for their preferences.
+- Task 4.3.1: Complete the `TODOs` defined in link:hands-on/lab4/smart-room-vm/src/agt/room_controller.asl[room_controller.asl] so that agent open a new voting when needed.
 
 
-- Task 4.3.3: Complete the `TODO` defined in link:lab3/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents shows the current temperature in its log message.
+- Task 4.3.2: Complete the `TODOs` defined in link:hands-on/lab4/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents use the voting machine and vote for their preferences.
+
+
+- Task 4.3.3: Complete the `TODO` defined in link:hands-on/lab4/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents shows the current temperature in its log message.
 
 
 
 
 === Task 4: Implement a linked operation
 
-The agents are happy with their brand new voting machine — and would like to showcase it to other agents via https://dweet.io/[Dweet.io]. Luckily, they already have a link:lab3/smart-room-vm/src/env/social/DweetArtifact.java[DweetArtifact] artifact template that they can use for this purpose.
+The agents are happy with their brand new voting machine — and would like to showcase it to other agents via https://dweet.io/[Dweet.io]. Luckily, they already have a link:hands-on/lab4/smart-room-vm/src/env/social/DweetArtifact.java[DweetArtifact] artifact template that they can use for this purpose.
 
-Your task is to complete the link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl] agent program with the following steps (see `TODOs`):
+Your task is to complete the link:hands-on/lab4/smart-room-vm/src/agt/room_controller.asl[room_controller.asl] agent program with the following steps (see `TODOs`):
 
-* Exercise 4.4.1: in  link:hands-on/lab3/smart-room.jcm[smart-room.jcm], create an instance of a `DweetArtifact` called `deeet` in the `room` workspace.
+* Exercise 4.4.1: in link:hands-on/lab4/smart-room-vm/smart-room.jcm[smart-room.jcm], create an instance of a `DweetArtifact` called `deeet` in the `room` workspace. This artifact requires a string as creation parameter. Use `"jacamo-wesaac2023-<your name>"`.
 
 * Exercise 4.4.2: link the voting machine to the newly created `DweetArtifact` using the operation `linkArtifacts(ArtId1, "port", ArtId2)`
 
