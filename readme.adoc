@@ -219,7 +219,7 @@ image::doc/figs/smart-room-env.png[]
 
 This lab uses the project at link:hands-on/lab4/smart-room-vm[`hands-on/lab4/smart-room-vm`]. The artifact template for our voting machine is defined in the link:hands-on/lab4/smart-room-vm/src/env/voting/VotingMachine.java[VotingMachine.java] class, but the usage interface is not yet fully implemented. Your first task is to complete this implementation. The following sub-tasks will guide you through it, note also the `TODO` items marked in comments in the Java class.
 
-- Exercise 4.1.1: complete the artifact's `init` method by defining an observable property `voting_status` and setting its value to  `closed`.
+- Exercise 4.1.1: complete the artifact's `init` method by defining an observable property `voting_status` and setting its value to  `"closed"`.
 - Exercise 4.1.2: complete the implementation of the `open` and `close` operations.
 
 To solve these tasks, you will have to define and work with observable properties. Tips for a quick start:
