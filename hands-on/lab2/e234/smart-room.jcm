@@ -2,7 +2,7 @@
 // the rc 
 
 mas smart_room {
-    agent rc : room_controller.asl {
+    agent rc : personal_assistant.asl {
     	  focus: room.hvac
     }
 
