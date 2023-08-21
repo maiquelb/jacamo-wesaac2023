@@ -17,5 +17,6 @@ preference(20).
     <- .wait(3000); // wait 3 seconds
        !wait_until(T).
 
+
 { include("$jacamoJar/templates/common-cartago.asl") }
 { include("$jacamoJar/templates/common-moise.asl") }
