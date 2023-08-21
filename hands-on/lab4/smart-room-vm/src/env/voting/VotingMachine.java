@@ -103,8 +103,9 @@ public class VotingMachine extends Artifact {
      }
      
     log("Voting is closed. The result is " + result);
+    */
   }
-   */
+   
 
   // TODO (Task 3): implement an internal operation with a countdown. The internal operation should be
   // invoked at the end of the open() operation.

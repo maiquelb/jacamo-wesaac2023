@@ -31,8 +31,7 @@ mas smart_room {
 
     agent rc : room_controller.asl {    
         join: room
-        focus: room.hvac, 
-               room.dweet
+        focus: room.hvac
                //TODO (exercise 4.2.3): the agent rc must focus the voting artifact
                
     }
