@@ -124,9 +124,9 @@ replacing the last number 10 by the current temperature of the room.
 
 * Exercise 2.3.2: change the plans of the previous exercise so that when the hvac state is `"cooling"` it is printed "so cool" and, when the state is `"heating"` it is printed "so hot".
 
-* Exercise 2.3.3: open the project in folder `lab2/e233` and take a look at the room controller program. There is a difference in the plan in lines 16-18. Run the application and evaluate the problems of this implementation. Some ideas about how to fix?
+* Exercise 2.3.3: open the project in folder `lab2/e233` and take a look at the personal assistant program. There is a difference in the plan in lines 16-18. Run the application and evaluate the problems of this implementation. Some ideas about how to fix?
 
-* Exercise 2.3.4: open the project in folder `lab2/e234` and take a look at the room controller program. The target temperature is as an argument of goal `keep_temperature`. The project, as it is, works. But what happens if a line like `!keep_temperature(35)` is added in the program? Explain the behavior produced by this change.
+* Exercise 2.3.4: open the project in folder `lab2/e234` and take a look at the personal assistant program. The target temperature is as an argument of goal `keep_temperature`. The project, as it is, works. But what happens if a line like `!keep_temperature(35)` is added in the program? Explain the behavior produced by this change.
 
 
 ==== Questons:
