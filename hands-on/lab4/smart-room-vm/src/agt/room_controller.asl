@@ -10,7 +10,8 @@
    <- ?voting_id(Id);
       .print(Ag, "asked me to open a new voting. Openning voting #", Id+1) ;
       //TODO (Task 4.3.1): open the voting (in the voting artifact)
-      open; //<== APAGAR
+      
+   .   
 
 
       
@@ -27,7 +28,6 @@
       !temperature(T)
    .
 
-//tolerance(2). // used in temp_management
 
 { include("temp_management.asl") }
 

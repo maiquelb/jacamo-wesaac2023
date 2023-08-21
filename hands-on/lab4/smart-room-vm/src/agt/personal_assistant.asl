@@ -14,7 +14,6 @@ now_is_warmer_than(T)
 	:- temperature(C) & tolerance(DT) & (C - T) > DT.
 
 +!keep_temperature 
-   //: preference(P) & temperature(C) & P\==C &
    : preference(P) &
      not temperature_in_range(P) &
      voting_status("closed")     
@@ -39,7 +38,7 @@ now_is_warmer_than(T)
       ?closest(Pref, Options, Vote);
       .print("My preference is ", Pref, ", so I vote for ", Vote);      
       // TODO (Task 4.3.2): invoke vote operation on voting machine artifact with the agent's Vote as a paratemer.   
-      vote(Vote); //<==APAGAR
+
    .
 
 

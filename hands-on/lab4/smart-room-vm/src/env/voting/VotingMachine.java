@@ -38,39 +38,25 @@ public class VotingMachine extends Artifact {
     defineObsProperty("options",optionTerms); 
     defineObsProperty("timeout", this.timeout); //<== APAGAR?
     defineObsProperty("voting_id",0); //<== APAGAR        
-    // TODO (Task 4.1.1): define a status property with values open/closed
-    defineObsProperty("voting_status","closed"); //<== APAGAR        
+    // TODO (Task 4.1.1): define a status property with values "open"/"closed"
   }
 
   @OPERATION
   public void open() {
-    // Checks that voting is closed — and do nowhint if not
+    // Checks that voting is closed — and do nothing if not
     if (getObsProperty("voting_status").getValue().equals("closed")) {
     
       this.voters = new ArrayList<>();
       this.votes = new ArrayList<>();
 
-      /*for (Object v: voters) {
-        this.voters.add(v.toString());
-      }*/
       this.voters.clear(); //when the poll opens, there is no voter yet
-
-      //ListTerm optionTerms = createOptionTermsList(options);
-      // TODO (Task 1): expose the options in optionTerms as an observable property named "options"
-      //                (the value of the observable property must be the optionTerms)
-        //defineObsProperty("options",optionTerms); //<== APAGAR
-
-      //this.timeout = 30000;
-
+      
+      int currentVotingId =  getObsProperty("voting_id").intValue();
+      getObsProperty("voting_id").updateValue(currentVotingId+1); 
 
       // TODO (Task 4.1.2): update the "voting_status" observable property to "open" to announce that voting is open
       getObsProperty("voting_status").updateValue("open"); //<== APAGAR
 
-      
-      
-      int currentVotingId =  getObsProperty("voting_id").intValue();
-      // TODO (Task 4.1.2): increment the value of the "voting_id" observable property (use the currentVotingId variable)
-      getObsProperty("voting_id").updateValue(currentVotingId+1); //<== APAGAR
 
       // TODO (Task 3): uncomment this line after implementing the countfown internal operation
       execInternalOp("countdown"); //<== COMENTAR
@@ -94,23 +80,21 @@ public class VotingMachine extends Artifact {
     log("recorded vote " + vote + " - " + getCurrentOpAgentId().getAgentName());
   }
 
-  //@OPERATION
+
    @INTERNAL_OPERATION
   public void close() {
     
-
     // TODO (Task 4.1.2): update the "voting_status" observable property to "close" to announce that voting is closed
-    getObsProperty("voting_status").updateValue("closed");; //<== APAGAR
 
     int result = computeResult(); //the result value is stored in the variable "result"
 
-    // TODO (Task 4.1.2): use a signal name "result" to expose the result 
-    signal("result",result); //<== APAGAR
+    // TODO (Task 4.1.2): use a signal called "result" to expose the result (stored in the "result" variable )
+    
 
     
 
-    // TODO (Task 4): uncomment this block after completing the room controller agent program
-    //<== APAGAR ou comentar
+    // TODO (Task 4.4.2): uncomment this block after completing the room controller agent program
+    /*
      try {
        log("Publishing the result to dweet.io: " + result);
        execLinkedOp("publish-port", "dweet", String.valueOf(result));
@@ -120,6 +104,7 @@ public class VotingMachine extends Artifact {
      
     log("Voting is closed. The result is " + result);
   }
+   */
 
   // TODO (Task 3): implement an internal operation with a countdown. The internal operation should be
   // invoked at the end of the open() operation.

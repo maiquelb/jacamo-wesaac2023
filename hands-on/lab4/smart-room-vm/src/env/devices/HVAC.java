@@ -7,14 +7,11 @@ public class HVAC extends Artifact {
 	private TemperatureSensorPanel sensorPanel;
 
 	private double temperature;
-	//private double preferredTemperature;
 
 	void init(int temp) {
 		this.temperature = temp; // initial simulated value
-		//this.preferredTemperature = prefTemp;
 		defineObsProperty("state","idle");
 		defineObsProperty("temperature",temperature);
- 		//defineObsProperty("preferred_temperature",preferredTemperature);
 
 		//sensorPanel = new TemperatureSensorPanel(this,temp);
 		//sensorPanel.setVisible(true);

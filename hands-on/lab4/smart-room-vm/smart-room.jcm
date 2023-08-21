@@ -9,44 +9,40 @@ mas smart_room {
         beliefs: preference(20), tolerance(2)
         goals: keep_temperature
         join: room
-        focus: room.hvac, 
-               //TODO (exercise 4.2.3): the agent pa1 must focus on the voting artifact
-               room.vote // <== APAGAR        
+        focus: room.hvac
+               //TODO (exercise 4.2.3): the agent pa1 must focus on the voting artifact               
     }
 
     agent pa2 : personal_assistant.asl {
         beliefs: preference(30), tolerance(2)
         goals: keep_temperature
         join: room
-        focus: room.hvac, 
-               //TODO (exercise 4.2.3): the agent pa2 must focus on the voting artifact
-               room.vote // <== APAGAR        
-        
+        focus: room.hvac
+               //TODO (exercise 4.2.3): the agent pa2 must focus on the voting artifact               
     }
 
     agent pa3 : personal_assistant.asl {
         beliefs: preference(22), tolerance(1)
         goals: keep_temperature
         join: room
-        focus: room.hvac, 
+        focus: room.hvac
                //TODO (exercise 4.2.3): the agent pa3 must focus on the voting artifact
-               room.vote // <== APAGAR   
     }
 
     agent rc : room_controller.asl {    
         join: room
         focus: room.hvac, 
-               room.dweet,
+               room.dweet
                //TODO (exercise 4.2.3): the agent rc must focus the voting artifact
-               room.vote // <== APAGAR   
+               
     }
 
     workspace room {
         artifact hvac: devices.HVAC(30)
         //TODO (Exercise 4.2.1): create an instance of the voting artifact called "vote"
-        artifact vote: voting.VotingMachine //<== APAGAR
+        
         //TODO (Exercise 4.4.1): create an instance of the dweet artifact called "dweet"
-        artifact dweet: social.DweetArtifact("jacamo_wesaac23") //<== APAGAR
+        
     }
 
     platform: jacamo.rest.JCMRest("--rest-port 8080")
