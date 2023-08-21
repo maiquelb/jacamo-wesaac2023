@@ -261,7 +261,7 @@ The agents are happy with their brand new voting machine — and would like to s
 
 Your task is to complete the link:hands-on/lab4/smart-room-vm/src/agt/room_controller.asl[room_controller.asl] agent program with the following steps (see `TODOs`):
 
-* Exercise 4.4.1: in  link:hands-on/lab4/smart-room.jcm[smart-room.jcm], create an instance of a `DweetArtifact` called `deeet` in the `room` workspace.
+* Exercise 4.4.1: in  link:hands-on/lab4/smart-room-vm/smart-room.jcm[smart-room.jcm], create an instance of a `DweetArtifact` called `deeet` in the `room` workspace.
 
 * Exercise 4.4.2: link the voting machine to the newly created `DweetArtifact` using the operation `linkArtifacts(ArtId1, "port", ArtId2)`
 
