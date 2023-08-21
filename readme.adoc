@@ -224,7 +224,7 @@ This lab uses the project at link:hands-on/lab4/smart-room-vm[`hands-on/lab4/sma
 
 To solve these tasks, you will have to define and work with observable properties. Tips for a quick start:
 
-- you can have a look at the implementation of the link:lab3/smart-room-vm/src/env/devices/HVAC.java[HVAC artifact]
+- you can have a look at the implementation of the link:hands-on/lab4/smart-room-vm/src/env/devices/HVAC.java[HVAC artifact]
 - you can check out https://cartago.sourceforge.net/?page_id=69[Example 01 — Artifact definition, creation, and use] from https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples]
 
 
