@@ -36,8 +36,8 @@ public class VotingMachine extends Artifact {
     Object[] options = {15,20,25,30};
     ListTerm optionTerms = createOptionTermsList(options);
     defineObsProperty("options",optionTerms); 
-    defineObsProperty("timeout", this.timeout); //<== APAGAR?
-    defineObsProperty("voting_id",0); //<== APAGAR        
+    defineObsProperty("timeout", this.timeout); 
+    defineObsProperty("voting_id",0); 
     // TODO (Task 4.1.1): define a status property with values "open"/"closed"
   }
 
@@ -55,11 +55,7 @@ public class VotingMachine extends Artifact {
       getObsProperty("voting_id").updateValue(currentVotingId+1); 
 
       // TODO (Task 4.1.2): update the "voting_status" observable property to "open" to announce that voting is open
-      getObsProperty("voting_status").updateValue("open"); //<== APAGAR
 
-
-      // TODO (Task 3): uncomment this line after implementing the countfown internal operation
-      execInternalOp("countdown"); //<== COMENTAR
     }
   }
 
