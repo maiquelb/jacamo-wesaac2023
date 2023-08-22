@@ -240,7 +240,7 @@ The implementation of the voting machine artifact is ready. Now, it is necessary
 
 - Exercise 4.2.4: run the application, go to link:http://localhost:3272[http://localhost:3272] and check whether the observable properties of the voting artifact are listed as beliefs of the agents.
 
-=== Task 3: Instantiate and use the voting machine
+=== Task 3: Use the voting machine
 
 The voting machine is now ready — and the room controller agent is, in fact, already using it. Still, a few bits are missing:
 
