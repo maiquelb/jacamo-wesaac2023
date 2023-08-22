@@ -252,7 +252,7 @@ The voting machine is now ready — and the room controller agent is, in fact, a
 
 - Task 4.3.3: Complete the `TODO` defined in link:hands-on/lab4/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents shows the current temperature in its console message.
 
-
+- Task 4.3.4: the _personal assistant_ keeps asking the _room controller_ to change the temperature while it does not matches the agent's preference. Change this behavior so that the _personal assistant_ adjusts its preference when it  perceives the voting result. The preference must increase by one if it is lower than the result. Similarly, it must must decrease by one if it is greater than the result.
 
 
 === Task 4: Implement a linked operation
