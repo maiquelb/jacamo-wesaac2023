@@ -202,7 +202,7 @@ Objectives:
 
 Consider a new scenario where the _personal assistant_ cannot access the hvac. Such access is restricted to another agent called _room controller_. To keep the desirable temperature, the _personal assistant_ must ask the _room controller_ to manage the hvac. The _room controler_ then manages a voting to check the preference of all the _personal assistant_ and manages the hvac accordingly.
 
-[[imgorg]]
+[[imgenv]]
 .smart room scenario
 image::doc/figs/smart-room-env.png[]
 
