@@ -250,7 +250,7 @@ The voting machine is now ready — and the room controller agent is, in fact, a
 - Task 4.3.2: Complete the `TODOs` defined in link:hands-on/lab4/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents use the voting machine and vote for their preferences.
 
 
-- Task 4.3.3: Complete the `TODO` defined in link:hands-on/lab4/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents shows the current temperature in its log message.
+- Task 4.3.3: Complete the `TODO` defined in link:hands-on/lab4/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents shows the current temperature in its console message.
 
 
 
