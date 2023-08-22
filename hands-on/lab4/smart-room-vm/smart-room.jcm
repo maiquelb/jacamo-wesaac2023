@@ -9,31 +9,30 @@ mas smart_room {
         beliefs: preference(20), tolerance(2)
         goals: keep_temperature
         join: room
-        focus: room.hvac
-               //TODO (exercise 4.2.3): the agent pa1 must focus on the voting artifact               
+        //TODO (exercise 4.2.3): the agent pa1 must focus on the voting artifact               
+        focus: room.hvac               
     }
 
     agent pa2 : personal_assistant.asl {
         beliefs: preference(30), tolerance(2)
         goals: keep_temperature
         join: room
-        focus: room.hvac
-               //TODO (exercise 4.2.3): the agent pa2 must focus on the voting artifact               
+        //TODO (exercise 4.2.3): the agent pa2 must focus on the voting artifact               
+        focus: room.hvac               
     }
 
     agent pa3 : personal_assistant.asl {
         beliefs: preference(22), tolerance(1)
         goals: keep_temperature
         join: room
+        //TODO (exercise 4.2.3): the agent pa2 must focus on the voting artifact               
         focus: room.hvac
-               //TODO (exercise 4.2.3): the agent pa3 must focus on the voting artifact
     }
 
     agent rc : room_controller.asl {    
         join: room
+        //TODO (exercise 4.2.3): the agent pa2 must focus on the voting artifact               
         focus: room.hvac
-               //TODO (exercise 4.2.3): the agent rc must focus the voting artifact
-               
     }
 
     workspace room {
