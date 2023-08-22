@@ -274,7 +274,7 @@ Your task is to complete the link:hands-on/lab4/smart-room-vm/src/agt/room_contr
 ** note 3: check out https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples] for a complete tour of all features supported for the enviornment dimension.
 
 
-Note: the _personal assistant_ keeps asking the _room controller_ to change the temperature while it does not matches the agent's preference. To change the preference of the agents in running time, use the following command, replacing `<agent_id>` with the agent name and `<pref_temp>` with the preferred temperature.
+Note: To change the preference of the agents in running time, use the following command, replacing `<agent_id>` with the agent name and `<pref_temp>` with the preferred temperature.
 ----
 curl --request POST 'http://127.0.1.1:8080/agents/<agent_id>/command' --header 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'c=-+preference(<pref_temp>)'
 ----
