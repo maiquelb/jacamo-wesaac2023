@@ -56,6 +56,10 @@ public class VotingMachine extends Artifact {
 
       // TODO (Task 4.1.2): update the "voting_status" observable property to "open" to announce that voting is open
 
+
+      // start the countdown to close the voting
+      execInternalOp("countdown");
+
     }
   }
 
