@@ -312,7 +312,7 @@ image::doc/figs/smart-room-org-wesaac.png[]
 
 
 
-== Task 3: Agents deploying the organization
+=== Task 3: Agents deploying the organization
 
 In the previous task, the organization is created by the application
 designer using the jcm file. The agents then execute in the
@@ -325,7 +325,9 @@ resulting organization entity. However, in some applications, the agents may nee
 * Exercise 5.3.3: complete the implementation of the link:hands-on/lab5/smart-room-org-2/src/agt/personal_assistant.asl[_personal assistant_] (line 32) make the existing group to manage the voting.
 
 
-=== Task 3: Handling the state of the organization
+=== Task 4: Handling the state of the organization
+
+* Exercise 5.4.1: comment the line `{ include("$moiseJar/asl/org-obedient.asl") }` from the room controller. Run the application and observe the result. What has changed? To help you to answer this question, check out the code at link:https://github.com/moise-lang/moise/blob/master/src/main/resources/asl/org-obedient.asl[`https://github.com/moise-lang/moise/blob/master/src/main/resources/asl/org-obedient.asl`].
 
 * Exercise 1: implement a plan in the `room_controller` agent that displays all fulfilled obligations. Hint: consider the organizational event `oblFulfilled/1`.
 +
