@@ -340,3 +340,9 @@ oblFulfilled(O) : Obligation O was fulfilled
 ----
 goalState(S, G, LC, LA, T) : Goal G, of scheme S, is in state T (possible values for T are waiting, enabled, and satisfied); LC is the list of agents committed to the goal, and LA is the list of agents that have already achieved the goal.
 ----
+
+
+
+=== Task 5: Adding institutions
+
+* Exercise 5.5.1: 
