@@ -345,4 +345,4 @@ goalState(S, G, LC, LA, T) : Goal G, of scheme S, is in state T (possible values
 
 === Task 5: Adding institutions
 
-* Exercise 5.5.1: 
+* Exercise 5.5.1: open the project at link:hands-on/lab5/smart-room-inst[hands-on/lab5/smart-room-inst]. Run the application and compare the achieved temperature with the votes of the agents. Check what might be wrong in the link:hands-on/lab5/smart-room-inst/src/agt/personal_assistant.asl[_personal assistant_].
