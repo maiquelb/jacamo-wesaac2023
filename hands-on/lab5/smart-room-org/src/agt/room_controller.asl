@@ -13,7 +13,7 @@ options([15,20,25,30]).
 //if the voting is closed, open the votation
 +!voting_open
    <- ?voting_id(Id);
-      .print(Ag, "Openning voting #", Id+1) ;
+      .print("Openning voting #", Id+1) ;
       open;
    .
 
