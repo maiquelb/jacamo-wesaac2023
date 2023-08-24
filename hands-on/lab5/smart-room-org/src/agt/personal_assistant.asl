@@ -46,7 +46,7 @@ now_is_warmer_than(T)
 
 
 
-+!ballot_done
++!vote_done
   <- 
      ?preference(Pref) ; // consult the agent's preference
      ?options(Options) ; // consult the temperature options

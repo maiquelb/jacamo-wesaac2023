@@ -122,6 +122,9 @@ public class VotingMachine extends Artifact {
 
   // This method is used to compute the winner
   private int computeResult() {
+
+    if(votes.size()==0) return 0;
+
     // Aggregate the votes
     Map<Integer, Long> counts = votes.stream().collect(Collectors.groupingBy(x -> x, Collectors.counting()));
     // Returns the option with most votes
