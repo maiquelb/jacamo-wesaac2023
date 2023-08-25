@@ -17,25 +17,18 @@ options([15,20,25,30]).
       open;
    .
 
-/*// This plan is triggerd when a voting result becomes available
+// This plan is triggerd when a voting result becomes available
 +result(T)[artifact_name(ArtName)]
    <- .println("Creating a new goal to set temperature to ",T);
       .drop_desire(temperature(_));
       !temperature(T)
    .
-*/   
-
-+!temperature_set: result(T)
-   <- .println("Creating a new goal to set temperature to ",T);
-      .drop_desire(temperature(_));
-      !temperature(T)
-   .
-   
+     
 
 +!voting_closed
    <- close.
 
-//tolerance(2) . // used in temp_management
+
 { include("temp_management.asl") }
 
 { include("$jacamoJar/templates/common-cartago.asl") }
