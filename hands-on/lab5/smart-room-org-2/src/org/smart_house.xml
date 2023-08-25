@@ -10,7 +10,7 @@
     <structural-specification>
         <group-specification id="room">
             <roles>
-                <role id="assistant" min="1" />
+                <role id="assistant" min="1" max="5" />
                 <role id="controller" min="1" max="1" />
             </roles>
         </group-specification>
@@ -20,24 +20,24 @@
         <scheme id="decide_temp">
             <goal id="voting">
                 <plan operator="sequence">
-                    <goal id="options_announced" />
                     <goal id="voting_open" />
-                    <goal id="ballot_done" ttf="10 seconds">
-                        <argument id="voting_machine_id" />
-                    </goal>
-                    <goal id="voting_closed" />
+                    <goal id="options_announced" />                    
+                    <goal id="vote_done"/>
+                    <goal id="voting_closed"/>
                 </plan>
-            </goal>
-
-            <mission id="mVote" min="1">
-                <goal id="ballot_done" />
-            </mission>
-
+            </goal>  
+            
             <mission id="mController" min="1">
                 <goal id="options_announced" />
                 <goal id="voting_open" />
                 <goal id="voting_closed" />
             </mission>
+
+            <mission id="mVote" min="1">
+                <goal id="vote_done" />
+            </mission>
+            
+
         </scheme>
 
     </functional-specification>

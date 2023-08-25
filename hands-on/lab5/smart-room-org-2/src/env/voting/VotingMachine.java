@@ -33,44 +33,26 @@ public class VotingMachine extends Artifact {
   private int timeout = 10000;
 
   public void init() {
-    //Object[] options = {15,20,25,30};
-    //ListTerm optionTerms = createOptionTermsList(options);
-    //defineObsProperty("options",optionTerms); 
-    defineObsProperty("timeout", this.timeout); //<== APAGAR?
-    defineObsProperty("voting_id",0); //<== APAGAR        
-    // TODO (Task 4.1.1): define a status property with values open/closed
-    defineObsProperty("voting_status","closed"); //<== APAGAR        
+    defineObsProperty("timeout", this.timeout);
+    defineObsProperty("voting_id",0); 
+    defineObsProperty("voting_status","closed"); 
   }
 
   @OPERATION
   public void open() {
-    // Checks that voting is closed — and do nowhint if not
+    // Checks that voting is closed — and do nothing if not
     if (getObsProperty("voting_status").getValue().equals("closed")) {
     
       this.voters = new ArrayList<>();
       this.votes = new ArrayList<>();
 
-      /*for (Object v: voters) {
-        this.voters.add(v.toString());
-      }*/
       this.voters.clear(); //when the poll opens, there is no voter yet
 
-      //ListTerm optionTerms = createOptionTermsList(options);
-      // TODO (Task 1): expose the options in optionTerms as an observable property named "options"
-      //                (the value of the observable property must be the optionTerms)
-        //defineObsProperty("options",optionTerms); //<== APAGAR
-
-      //this.timeout = 30000;
-
-
-      // TODO (Task 4.1.2): update the "voting_status" observable property to "open" to announce that voting is open
-      getObsProperty("voting_status").updateValue("open"); //<== APAGAR
-
-      
+      getObsProperty("voting_status").updateValue("open");     
       
       int currentVotingId =  getObsProperty("voting_id").intValue();
-      // TODO (Task 4.1.2): increment the value of the "voting_id" observable property (use the currentVotingId variable)
-      getObsProperty("voting_id").updateValue(currentVotingId+1); //<== APAGAR
+      
+      getObsProperty("voting_id").updateValue(currentVotingId+1); 
 
       
     }
@@ -87,7 +69,7 @@ public class VotingMachine extends Artifact {
     if(voters.contains(getCurrentOpAgentId().getAgentName()))
         failed("You've already voted!");
 
-    // If everithing is fine, accept the vote
+    // If everything is fine, accept the vote
     votes.add((Integer) vote);
     voters.add(getCurrentOpAgentId().getAgentName());        
     log("recorded vote " + vote + " - " + getCurrentOpAgentId().getAgentName());
@@ -100,25 +82,10 @@ public class VotingMachine extends Artifact {
 
     int result = computeResult(); //the result value is stored in the variable "result"
     
-    signal("result",result); //<== APAGAR
+    signal("result",result); 
      
-    log("Voting is closed by " + getCurrentOpAgentId().getAgentName() + ". The result is " + result);
   }
 
-  // This method is used to convert datum from Jason to Java
-  /*private ListTerm createOptionTermsList(Object[] options) {
-    ListTerm optionTerms = ASSyntax.createList();
-
-    for (Object o: options) {
-      try {
-        optionTerms.add(ASSyntax.parseTerm(o.toString()));
-      } catch (ParseException e) {
-        log(e.getMessage());
-      }
-    }
-
-    return optionTerms;
-  }*/
 
   // This method is used to compute the winner
   private int computeResult() {

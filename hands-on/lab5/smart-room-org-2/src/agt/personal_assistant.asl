@@ -14,19 +14,23 @@ now_is_colder_than(T)
 now_is_warmer_than(T)
 	:- temperature(C) & tolerance(DT) & (C - T) > DT.
 
+
+/*
+   The agent wants to keep the temperature as close as possible to its preference.
+   If the temperature os not close of the agent's preference, it launches a new schema to manage the voting process.
+*/
 +!keep_temperature 
-   //: preference(P) & temperature(C) & P\==C &
    : preference(P) &
      not temperature_in_range(P) &
-     voting_status("closed") &
      not scheme(temp_r1,decide_temp,_) &
      group(r1, room, GrpArtId)[artifact_id(OrgArtId)] &
      formationStatus(ok)[artifact_id(GrpArtId)] 
-   <- .print("Current temperature is different of my preferred one, which is ", P);
-      //.send(rc,achieve,open_voting);
-      //.wait(voting_status("open"));      
-      createScheme(temp_r1,decide_temp,SchArtId)[artifact_id(OrgArtId)];
-      addScheme(temp_r1)[artifact_id(GrpArtId)];
+   <- .print("Current temperature is different of my preferred one, which is ", P ,". Launching a new schema.");      
+      .wait(1000); //wait a second just to better observe the output
+      //TODO (exercise 5.3.2): create a new schema to manage a voting
+
+      //TODO (exercise 5.3.3): make the existing group to manage the voting
+      
       !keep_temperature;
        .
 
@@ -35,16 +39,26 @@ now_is_warmer_than(T)
       !keep_temperature.
 
 
--keep_temperature
+-!keep_temperature
    <- .wait(1000);
       !keep_temperature.
 
-+goalState(temp_r1,voting,[],[],satisfied)[artifact_id(SchArtId)] : schemes([temp_r1])[artifact_id(GrpArtId)]
-   <- .print("Going to destroy scheme...");
-      .wait(5000);
-      
-      //destroy[artifact_id(SchArtId)].
-      removeScheme(temp_r1)[artifact_id(GrpArtId)].
+
+/* If the goal of for a new temperature has been achieved, the scheme is destroyed. */
++goalState(SchId,voting,[],[],satisfied)[artifact_id(SchArtId)] 
+   : scheme(SchId,_,_)[artifact_id(OrgBoardArtId)]
+   <- .random(R); .wait(R*100); //wait a random while as another agent may be currently finishing the schema
+      !finish_schema(SchId, OrgBoardArtId).
+
++!finish_schema(SchId, OrgBoardArtId) : scheme(SchId,_,_)[artifact_id(OrgBoardArtId)]  
+    <-  destroyScheme(SchId)[artifact_id(OrgBoardArtId)].
+
++!finish_schema(SchId, OrgBoardArtId).
+
+-!finish_schema(SchId, OrgBoardArtId)
+   <- .print("Failed to destroy the schema ", SchId, ". It has been possibly destroyed by another agent").
+
+
 //----------------- Greeting management --------------   
 
 +!greet : language(english)
@@ -58,7 +72,7 @@ now_is_warmer_than(T)
 
 
 
-+!ballot_done
++!vote_done
   <- 
      ?preference(Pref) ; // consult the agent's preference
      ?options(Options) ; // consult the temperature options
@@ -81,11 +95,3 @@ closest(P,[_|T],V) :- closest(P,T,V). // keep looking for options in the list
 { include("$jacamoJar/templates/common-moise.asl") }
 
 { include("$moiseJar/asl/org-obedient.asl") }
-
-// commit to missions when permitted
-/*+permission(Ag,Norm,committed(Ag,Mission,Scheme),Deadline)[artifact_id(ArtId),workspace(_,W)]
-    : .my_name(Ag)
-   <- .print("I am permitted to commit to ", Mission," on ", Scheme,"... doing ");
-      commitMission(Mission)[artifact_name(Scheme), wid(W)].
-*/
-      

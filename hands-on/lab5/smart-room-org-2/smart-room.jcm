@@ -44,9 +44,7 @@ mas smart_room {
                      pa2 assistant
                      pa3 assistant
                      rc  controller
-            //responsible-for: temp_r1
         }
-        //scheme temp_r1: decide_temp
     }
 
     platform: jacamo.rest.JCMRest("--rest-port 8080")
