@@ -23,6 +23,7 @@
                     <goal id="vote_done" ttf="10 seconds">
                         <argument id="voting_machine_id" />
                     </goal>
+                    <goal id="temperature_set" />
                 </plan>
             </goal>
 
@@ -31,6 +32,7 @@
             <mission id="mController" min="1">
                 <goal id="options_announced" />
                 <goal id="voting_closed" />
+                <goal id="temperature_set" />
             </mission>
         </scheme>
 
