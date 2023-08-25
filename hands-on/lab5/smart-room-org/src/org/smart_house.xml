@@ -20,8 +20,7 @@
             <goal id="voting">
                 <plan operator="sequence">
                     <goal id="options_announced" />
-                    <goal id="vote_done">
-                    </goal>
+                    <goal id="vote_done"/>
                     <goal id="temperature_set" />
                 </plan>
             </goal>
