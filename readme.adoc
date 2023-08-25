@@ -315,7 +315,7 @@ image::doc/figs/smart-room-org-wesaac.png[]
 === Task 3: Agents deploying the organization
 
 In the previous task, the organization is created by the application
-designer using the jcm file. The agents then execute in the
+designer using the jcm file. The agents then act within the
 resulting organization entity. However, in some applications, the agents may need themselves to create or change the organization entity. In this task, the agents create new voting schemes whenever the temperature differs from their preferences.
 
 * Exercise 5.3.1: open the project `lab5/smart-room-org'. Compare the link:hands-on/lab5/smart-room-org-2/smart-room.jcm[smart-room.jcm] with link:hands-on/lab5/smart-room-org/smart-room.jcm[the one of the previous task]. What is different?
