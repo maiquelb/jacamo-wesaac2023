@@ -20,8 +20,7 @@
             <goal id="voting">
                 <plan operator="sequence">
                     <goal id="options_announced" />
-                    <goal id="vote_done" ttf="10 seconds">
-                        <argument id="voting_machine_id" />
+                    <goal id="vote_done">
                     </goal>
                     <goal id="temperature_set" />
                 </plan>
