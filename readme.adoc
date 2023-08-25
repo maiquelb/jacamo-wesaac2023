@@ -329,20 +329,24 @@ resulting organization entity. However, in some applications, the agents may nee
 
 * Exercise 5.4.1: comment the line `{ include("$moiseJar/asl/org-obedient.asl") }` from the room controller. Run the application and observe the result. What has changed? To help you to answer this question, check out the code at link:https://github.com/moise-lang/moise/blob/master/src/main/resources/asl/org-obedient.asl[`https://github.com/moise-lang/moise/blob/master/src/main/resources/asl/org-obedient.asl`].
 
-* Exercise 1: implement a plan in the `room_controller` agent that displays all fulfilled obligations. Hint: consider the organizational event `oblFulfilled/1`.
+* Exercise 5.4.2: implement a plan in the `room_controller` agent that displays all fulfilled obligations. Hint: consider the organizational event `oblFulfilled/1`.
 +
 ----
 oblFulfilled(O) : Obligation O was fulfilled
 ----
 
-* Exercise 2: implement a plan for the `personal_assistant` agents that reacts to the achievement of the organizational goal `closing_voting` by printing the current temperature. Hint: consider the organizational belief `goalState/5`.
+* Exercise 5.4.3: implement a plan for the `personal_assistant` agents that reacts to the achievement of the organizational goal `closing_voting` by printing the current temperature. Hint: consider the organizational belief `goalState/5`.
 +
 ----
 goalState(S, G, LC, LA, T) : Goal G, of scheme S, is in state T (possible values for T are waiting, enabled, and satisfied); LC is the list of agents committed to the goal, and LA is the list of agents that have already achieved the goal.
 ----
 
 
-
+* Exercise 5.4.4: in the current version, only the agents _obliged_ to vote actually do that. Agents that are _permitted_ to vote do not vote. Change the implementation so that the agents _permitted_ to vote also engage in the voting process. Hints: (i) consider the organizational belief `permission/4`
++
+----
+permission(A,R,G,D): the agent A is permitted to achieve the goal G with the deadline D because the reason R.
+----
 === Task 5: Adding institutions
 
 * Exercise 5.5.1: open the project link:hands-on/lab5/smart-room-org[`hands-on/lab5/smart-room-org`]. Remove the latest line of the plan `!+vote_done`.Run the application and compare the achieved temperature with the votes of the agents. Check what might be wrong.
