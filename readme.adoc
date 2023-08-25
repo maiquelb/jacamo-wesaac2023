@@ -345,7 +345,8 @@ goalState(S, G, LC, LA, T) : Goal G, of scheme S, is in state T (possible values
 * Exercise 5.4.4: in the current version, only the agents _obliged_ to vote actually do that. Agents that are _permitted_ to vote do not vote. Change the implementation so that the agents _permitted_ to vote also engage in the voting process. Hints: (i) consider the organizational belief `permission/4`
 +
 ----
-permission(A,R,G,D): the agent A is permitted to achieve the goal G with the deadline D because the reason R.
+permission(A,R,G,D): the agent A is permitted to achieve the goal G 
+                     with the deadline D because the reason R.
 ----
 === Task 5: Adding institutions
 
