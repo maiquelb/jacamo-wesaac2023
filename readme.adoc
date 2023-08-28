@@ -244,15 +244,15 @@ The implementation of the voting machine artifact is ready. Now, it is necessary
 
 The voting machine is now ready — and the room controller agent is, in fact, already using it. Still, a few bits are missing:
 
-- Task 4.3.1: Complete the `TODOs` defined in link:hands-on/lab4/smart-room-vm/src/agt/room_controller.asl[room_controller.asl] so that agent open a new voting when needed.
+- Exercise 4.3.1: Complete the `TODOs` defined in link:hands-on/lab4/smart-room-vm/src/agt/room_controller.asl[room_controller.asl] so that agent open a new voting when needed.
 
 
-- Task 4.3.2: Complete the `TODOs` defined in link:hands-on/lab4/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents use the voting machine and vote for their preferences.
+- Exercise 4.3.2: Complete the `TODOs` defined in link:hands-on/lab4/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents use the voting machine and vote for their preferences.
 
 
-- Task 4.3.3: Complete the `TODO` defined in link:hands-on/lab4/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents shows the current temperature in its console message.
+- Exercise 4.3.3: Complete the `TODO` defined in link:hands-on/lab4/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents shows the current temperature in its console message.
 
-- Task 4.3.4: the _personal assistant_ keeps asking the _room controller_ to change the temperature while it does not matches the agent's preference. Change this behavior so that the _personal assistant_ adjusts its preference when it  perceives the voting result. The preference must increase by one if it is lower than the result. Similarly, it must must decrease by one if it is greater than the result.
+- Exercise 4.3.4: the _personal assistant_ keeps asking the _room controller_ to change the temperature while it does not matches the agent's preference. Change this behavior so that the _personal assistant_ adjusts its preference when it  perceives the voting result. The preference must increase by one if it is lower than the result. Similarly, it must must decrease by one if it is greater than the result.
 
 
 === Task 4: Implement a linked operation
@@ -287,12 +287,12 @@ curl --request POST 'http://127.0.1.1:8080/agents/<agent_id>/command' --header '
 .organizational specification
 image::doc/figs/smart-room-org-wesaac.png[]
 
-* Exercise 5.1.1: open the project link:hands-on/lab5/smart-room-org[`hands-on/lab5/smart-room-org`]. Compare the organizational specification in link:hands-on/lab5/smart-room-org/src/org/smart_house.xml[src/org/smart_house.xml]
+* Exercise 5.1.1: open the project link:hands-on/lab5/smart-room-org[`hands-on/lab5/smart-room-org`]. Compare the organizational specification in link:hands-on/lab5/smart-room-org/src/org/smart_house.xml[`src/org/smart_house.xml`]
   with the <<imgorg>> shown above. Try to identify groups, roles, goals, missions, role cardinalities, and goal decompositions
 
-* Exercise 5.1.2: there are some elements in the <<imgorg>> shown above that are not present in the the organizational specification in link:hands-on/lab5/smart-room-org/src/org/smart_house.xml[src/org/smart_house.xml]. Add these elements to the specification.
+* Exercise 5.1.2: there are some elements in the <<imgorg>> shown above that are not present in the the organizational specification in link:hands-on/lab5/smart-room-org/src/org/smart_house.xml[`src/org/smart_house.xml`]. Add these elements to the specification.
 
-* Exercise 5.1.3: execute the application, link:http://localhost:3273[_organization inspector_] and observe the state of the organization.
+* Exercise 5.1.3: execute the application, link:http://localhost:3271[_organization inspector_] and observe the state of the organization.
 
 * Exercise 5.1.4: execute the application, link:http://localhost:3272[_mind inspector_] and observe the beliefs of the agents.
 
@@ -306,7 +306,7 @@ image::doc/figs/smart-room-org-wesaac.png[]
 
 * Exercise 5.2.3: parallelize the execution of the `announce_options` and `open_voting`. Analyze the result of the new scheme in the _organization inspector_.
 
-* Exercise 5.2.4: execute the system and observe whether all the agents voted. If that is not the case, modify the organizational specification so that every agent votes according to their preference.
+* Exercise 5.2.4: execute the system and observe whether all the agents have voted. If that is not the case, modify the organizational specification so that every agent votes according to its preference.
 
 * Exercise 5.2.5: extend the organizational specification so that the _controller_ is obliged to announce the result of the voting. Change also the _room controller_ code so that it fulfills this obligation.
 
@@ -318,7 +318,7 @@ In the previous task, the organization is created by the application
 designer using the jcm file. The agents then act within the
 resulting organization entity. However, in some applications, the agents may need themselves to create or change the organization entity. In this task, the agents create new voting schemes whenever the temperature differs from their preferences.
 
-* Exercise 5.3.1: open the project link:hands-on/lab5/smart-room-org-2[`hands-on/lab5/smart-room-org-2']. Compare the link:hands-on/lab5/smart-room-org-2/smart-room.jcm[smart-room.jcm] with link:hands-on/lab5/smart-room-org/smart-room.jcm[the one of the previous task]. What is different?
+* Exercise 5.3.1: open the project link:hands-on/lab5/smart-room-org-2[`hands-on/lab5/smart-room-org-2`]. Compare the link:hands-on/lab5/smart-room-org-2/smart-room.jcm[`smart-room.jcm`] with link:hands-on/lab5/smart-room-org/smart-room.jcm[the one of the previous task]. What is different?
 
 * Exercise 5.3.2: complete the implementation of the link:hands-on/lab5/smart-room-org-2/src/agt/personal_assistant.asl[_personal assistant_] (line 30) to create a new voting schema.
 
