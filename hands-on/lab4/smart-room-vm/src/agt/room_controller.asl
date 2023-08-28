@@ -8,7 +8,7 @@
 //if the agent gets the goal open_voting while a voting is closed, open the votation
 +!open_voting[source(Ag)] 
    <- ?voting_id(Id);
-      .print(Ag, "asked me to open a new voting. Openning voting #", Id+1) ;
+      .print(Ag, " asked me to open a new voting. Openning voting #", Id+1) ;
       //TODO (Task 4.3.1): open the voting (in the voting artifact)
    
 
