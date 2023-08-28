@@ -96,10 +96,9 @@ image::doc/figs/smart-room1.png[]
 
 === Task 1: Run the initial project for the smart room scenario
 
-To run the smart room project, type the commands below in the terminal:
+To run the smart room project, open the folder link:hands-on/labs/smart-room[`hands-on/labs/smart-room`] with the Visual Studio Code (or access it in the terminal).  Then, run the project by typing the command below in the terminal:
 ----
-cd lab2/smart-room
-./gradlew
+jacamo smart-room.jcm
 ----
 
 You can see how the system reacts to changes in temperature by opening another terminal and executing the command:
