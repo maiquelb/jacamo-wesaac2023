@@ -1,0 +1,9 @@
+// simple application to play with communication
+
+mas exercises {
+
+    agent bob
+    
+    agent alice
+    
+}
