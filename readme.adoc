@@ -350,3 +350,9 @@ goalState(S, G, LC, LA, T) : Goal G, of scheme S, is in state T (possible values
 
 * Exercise 5.5.2: open the project link:hands-on/lab5/smart-room-inst[`hands-on/lab5/smart-room-inst`]. Compare the organization entity definition at link:hands-on/lab5/smart-room-inst/smart-room.jcm[smart-room.jcm] with link:hands-on/lab5/smart-room-org/smart-room.jcm[the one of the previous task]. What is different?
 
+* Exercise 5.5.3: in the current verion of the link:hands-on/lab5/smart-room-inst[smart-room-inst] application, the goal of ending the voting is never achieved even the responsible agent executes the corresponding operation in the voting artifact. Add a new constitutive rule in link:hands-on/lab5/smart-room-inst/src/org/smart_house.sai[`src/org/smart_house.sai/org/smart_house.sai`] to specify that the execution of the _close_ operation in the _voting artifact_ counts as the the achievement of the _voting_closed_ goal. Use the following template, replacing the elements in `<>` by the proper identifiers.
++
+----
+11: count-as done(<scheme>,<goal>,Agent)
+    when <artifact operation name> [sai__agent(Agent)].    
+----
