@@ -81,7 +81,7 @@ Objectives:
 
 Scenario
 
-Now, the _personal assintant_ controls the temperature of a room. It has the goal to mantain the temperature around a certain value.
+Now, the _personal assistant_ controls the temperature of a room. It has the goal to mantain the temperature around a certain value.
 
 The room is equipped with a "Heating, Ventilating and Air  Conditioning" (HVAC), that provides:
 
