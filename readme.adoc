@@ -33,7 +33,7 @@ In this lab, some _personal assistant_ agents have the simple task of to greet e
 
 === Task 1: Run the first JaCaMo application
 
-Clone the repository at (https://github.com/maiquelb/jacamo-wesaac2023). Open the folder link:hands-on/lab1[hands-on/lab1] with the Visual Studio Code (or access it in the terminal).  Then, run the project by typing the command below in the terminal:
+Clone the repository at (https://github.com/maiquelb/jacamo-wesaac2023). Open the folder link:hands-on/lab1[`hands-on/lab1`] with the Visual Studio Code (or access it in the terminal).  Then, run the project by typing the command below in the terminal:
 
 ----
 jacamo agents_intro.jcm 
