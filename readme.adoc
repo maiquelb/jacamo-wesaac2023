@@ -85,8 +85,8 @@ Now, the _personal assistant_ controls the temperature of a room. It has the goa
 
 The room is equipped with a "Heating, Ventilating and Air  Conditioning" (HVAC), that provides:
 
-* the current room temperature
-* operations to start cooling, start heating, and stop the machine
+* the current room temperature;
+* operations to start cooling, start heating, and stop the machine.
 
 
 [[imgenvsmartroom]]
