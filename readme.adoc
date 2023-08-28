@@ -13,7 +13,7 @@ This tutorial is adapted from the Multi-Agent Oriented Programming Tutorial give
 
 ==== Requirements
 * Java JDK 17+
-* VSCode
+* Visual Studio Code
 
 == Application scenario
 In this tutorial, we will develop a MAOP where some agents that are _personal assistants_. They interact with each other and act in the environment.
@@ -33,11 +33,10 @@ In this lab, some _personal assistant_ agents have the simple task of to greet e
 
 === Task 1: Run the first JaCaMo application
 
-Clone the repository at (https://github.com/maiquelb/jacamo-wesaac2023). Then, run the initial project by typing the commands below in the terminal:
+Clone the repository at (https://github.com/maiquelb/jacamo-wesaac2023). Open the folder link:hands-on/lab1[hands-on/lab1] with the Visual Studio Code (or access it in the terminal).  Then, run the project by typing the command below in the terminal:
 
 ----
-cd hands-on/lab1
-./gradlew
+jacamo agents_intro.jcm 
 ----
 
 
