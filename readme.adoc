@@ -290,7 +290,7 @@ image::doc/figs/smart-room-org-wesaac.png[]
 * Exercise 5.1.1: open the project link:hands-on/lab5/smart-room-org[`hands-on/lab5/smart-room-org`]. Compare the organizational specification in link:hands-on/lab5/smart-room-org/src/org/smart_house.xml[`src/org/smart_house.xml`]
   with the <<imgorg>> shown above. Try to identify groups, roles, goals, missions, role cardinalities, and goal decompositions
 
-* Exercise 5.1.2: there are some elements in the <<imgorg>> shown above that are not present in the the organizational specification in link:hands-on/lab5/smart-room-org/src/org/smart_house.xml[src/org/smart_house.xml]. Add these elements to the specification.
+* Exercise 5.1.2: there are some elements in the <<imgorg>> shown above that are not present in the the organizational specification in link:hands-on/lab5/smart-room-org/src/org/smart_house.xml[`src/org/smart_house.xml`]. Add these elements to the specification.
 
 * Exercise 5.1.3: execute the application, link:http://localhost:3273[_organization inspector_] and observe the state of the organization.
 
