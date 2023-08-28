@@ -79,7 +79,7 @@ Objectives:
 * Understand the difference between declarative and procedural goals;
 * Understand more complex agent design patterns.
 
-=== Scenario
+Scenario
 
 Now, the _personal assintant_ controls the temperature of a room. It has the goal to mantain the temperature around a certain value.
 
