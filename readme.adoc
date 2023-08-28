@@ -20,6 +20,9 @@ In this tutorial, we will develop a MAOP where some agents that are _personal as
 
 == Agent Dimension Part I - Agent basics (Lab 1)
 
+Scenario: 
+In this lab, some _personal assistant_ agents have the simple task of to greet each other.
+
 Objectives:
 
 * Know the basic structure of JaCaMo applications;
@@ -28,8 +31,7 @@ Objectives:
 * Have a first experience with the implementation of _goals_, _beliefs_, _plans_, and _internal actions_.   
 
 
-=== Scenario
-In this lab, some _personal assistant_ agents have the simple task of to greet each other.
+
 
 === Task 1: Run the first JaCaMo application
 
