@@ -18,7 +18,7 @@ This tutorial is adapted from the Multi-Agent Oriented Programming Tutorial give
 == Application scenario
 In this tutorial, we will develop a MAOP where some agents that are _personal assistants_. They interact with each other and act in the environment.
 
-== Agent Dimension - Agent basics (Lab 1)
+== Agent Dimension Part I - Agent basics (Lab 1)
 
 Objectives:
 
@@ -69,7 +69,7 @@ curl --request POST 'http://127.0.1.1:8080/agents/<agent_id>/command' --header '
 * Where are the actions implemented?
 
 
-== Agent x Environment (Lab 2)
+== Agent Dimension Part II - Agent x Environment (Lab 2)
 
 Objectives:
 
