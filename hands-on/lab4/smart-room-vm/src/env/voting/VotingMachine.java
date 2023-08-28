@@ -66,7 +66,7 @@ public class VotingMachine extends Artifact {
   @OPERATION
   public void vote(int vote) {
     // Checks that voting is open — and throws a failure if not
-    if (getObsProperty("voting_status").getValue().equals("close")) {
+    if (getObsProperty("voting_status").getValue().equals("closed")) {
       failed("The voting machine is closed!");
     }
     
@@ -84,7 +84,7 @@ public class VotingMachine extends Artifact {
    @INTERNAL_OPERATION
   public void close() {
     
-    // TODO (Task 4.1.2): update the "voting_status" observable property to "close" to announce that voting is closed
+    // TODO (Task 4.1.2): update the "voting_status" observable property to "closed"
 
     int result = computeResult(); //the result value is stored in the variable "result"
 
