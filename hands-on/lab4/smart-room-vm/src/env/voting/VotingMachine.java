@@ -115,10 +115,10 @@ public class VotingMachine extends Artifact {
 
     log("Voting is closing!");
 
-    // TODO (Task 3): Use the await_time method to wait for the specified timeout, then invoke the
-    // close operation.
-     getObsProperty("voting_status").updateValue("closed"); //<== APAGAR
-     execInternalOp("close"); //<== COMENTAR
+    // TODO (Task 3): Use the await_time method to wait for the specified timeout, 
+    //                then invoke the "close" internal operation.
+     getObsProperty("voting_status").updateValue("closed");
+     //execInternalOp("close"); // remove the comment to  invoke the "close" internal operation.
   }
 
   // This method is used to convert datum from Jason to Java

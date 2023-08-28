@@ -5,14 +5,12 @@ mas smart_room {
 
     agent pa1 : personal_assistant.asl {
         beliefs: preference(20), tolerance(2)
-        //goals: keep_temperature
         join: room
         focus: room.hvac, room.vote 
     }
 
     agent pa2 : personal_assistant.asl {
         beliefs: preference(30), tolerance(2)
-        //goals: keep_temperature
         join: room
         focus: room.hvac, room.vote 
         
@@ -20,7 +18,6 @@ mas smart_room {
 
     agent pa3 : personal_assistant.asl {
         beliefs: preference(22), tolerance(1)
-        //goals: keep_temperature
         join: room
         focus: room.hvac, room.vote 
     }

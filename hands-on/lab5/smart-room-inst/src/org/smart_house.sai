@@ -46,8 +46,13 @@ constitutive_rules:
    count-as committed(A,mController,temp_r1)
    while responsible(r1,temp_r1).              
 
+/*
+   Rule 8: broadcasting options(_) with any argument counts as the goal options_announced being achieved.
+
+*/
+
 8: count-as done(temp_r1,options_announced,Agent)
-    when broadcast(tell,options(Options))[sai__agent(Agent)].
+    when broadcast(tell,options(_))[sai__agent(Agent)].
  
 
 /*
@@ -62,8 +67,18 @@ constitutive_rules:
 10: count-as done(temp_r1,vote_done,Agent)
     when vote(Preference)[sai__agent(Agent)].       
 
-11: count-as done(temp_r1,voting_closed,Agent)
-    when close[sai__agent(Agent)].    
+
+/* Exercise 5.5.3 
+   In the current version of the smart-room-inst application, the goal of ending the voting 
+   is never achieved even the responsible agent executes the corresponding operation in the voting artifact. 
+   Add a new constitutive rule (rule #11) to specify that the execution of the close operation in the voting 
+   artifact counts as the the achievement of the voting_closed goal. 
+   Use the following template, replacing the elements in <> by the proper identifiers.
+
+11: count-as done(<scheme>,<goal>,Agent)
+    when <artifact operation name> [sai__agent(Agent)].
+
+*/
 
 
 /*

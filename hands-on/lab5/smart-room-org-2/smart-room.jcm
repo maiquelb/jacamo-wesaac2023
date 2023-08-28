@@ -1,6 +1,3 @@
-// smart room multi agent
-// rc + personal assistants
-
 mas smart_room {
 
     agent pa1 : personal_assistant.asl {
