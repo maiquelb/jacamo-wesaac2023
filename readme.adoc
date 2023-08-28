@@ -306,7 +306,7 @@ image::doc/figs/smart-room-org-wesaac.png[]
 
 * Exercise 5.2.3: parallelize the execution of the `announce_options` and `open_voting`. Analyze the result of the new scheme in the _organization inspector_.
 
-* Exercise 5.2.4: execute the system and observe whether all the agents have voted. If that is not the case, modify the organizational specification so that every agent votes according to their preference.
+* Exercise 5.2.4: execute the system and observe whether all the agents have voted. If that is not the case, modify the organizational specification so that every agent votes according to its preference.
 
 * Exercise 5.2.5: extend the organizational specification so that the _controller_ is obliged to announce the result of the voting. Change also the _room controller_ code so that it fulfills this obligation.
 
