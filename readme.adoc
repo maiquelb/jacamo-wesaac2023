@@ -56,7 +56,7 @@ curl --request POST 'http://127.0.1.1:8080/agents/<agent_id>/command' --header '
 ----
 
 === Task 3: Extending the agent program
-* Exercise 1.3.1: make the agent `bob` to inform the current date using the plan _inform_date_. The other agents must not give this information.
+* Exercise 1.3.1: make the agent `bob` to inform the current date using the plan `inform_date`. The other agents must not give this information.
 
 * Exercise 1.3.2: add a new personal assistant agent to the system. This agent should greet in portuguese ("Bom dia.").
 
