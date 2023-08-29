@@ -347,7 +347,7 @@ the agents who are _obliged_ to vote are the only ones who effectively vote. Age
 
 === Task 5: Adding institutions
 
-* Exercise 5.5.1: open the project link:hands-on/lab5/smart-room-org[`hands-on/lab5/smart-room-org`]. Remove the latest line of the plan `+!vote_done`. Run the application and compare the achieved temperature with the votes of the agents. Check what might be wrong.
+* Exercise 5.5.1: open the project link:hands-on/lab5/smart-room-org[`hands-on/lab5/smart-room-org`]. In the code of the link:hands-on/lab5/smart-room-org/src/personal_assistant.asl[`personal assistant`], remove the latest line of the plan `+!vote_done`. Run the application and compare the achieved temperature with the votes of the agents. Check what might be wrong.
 
 * Exercise 5.5.2: open the project link:hands-on/lab5/smart-room-inst[`hands-on/lab5/smart-room-inst`]. Compare the organization entity definition at link:hands-on/lab5/smart-room-inst/smart-room.jcm[`smart-room.jcm`] with link:hands-on/lab5/smart-room-org/smart-room.jcm[the one of the previous task]. What is different?
 
