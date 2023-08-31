@@ -14,6 +14,7 @@ This tutorial is adapted from the Multi-Agent Oriented Programming Tutorial give
 ==== Requirements
 * Java JDK 17+
 * Visual Studio Code
+* link:[https://github.com/jacamo-lang/jacamo/blob/master/doc/install.adoc]JaCaMo Command Line Interface (a script for installation on Linux is available link:https://www.dropbox.com/scl/fi/50u1tav7q8nwdnh8ado0b/install_jacamo.sh?rlkey=bjtppgs1qz6hsd427qt1tjfbk&dl=0[here]
 
 == Application scenario
 In this tutorial, we will develop a MAOP where some agents that are _personal assistants_. They interact with each other and act in the environment.
