@@ -1,0 +1,103 @@
+mas uav_rescue {
+    agent coordinator : coordinator.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent boat1 : boat.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent boat2 : boat.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent boat3 : boat.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent boat4 : boat.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent boat5 : boat.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent uav1 : uav.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent uav2 : uav.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent uav3 : uav.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent uav4 : uav.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent uav5 : uav.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent uav6 : uav.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent uav7 : uav.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent uav8 : uav.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent uav9 : uav.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    agent uav10 : uav.asl {
+        focus: rescue.location
+        focus: rescue.operations
+        focus: rescue.commands
+    }
+
+    workspace rescue {
+        artifact location: tools.LocationArtifact()
+        artifact operations: tools.RescueArtifact()
+        artifact commands: tools.CommandArtifact()
+    }
+}
